@@ -3,17 +3,23 @@ package com.example.amst5;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.widget.ScrollView;
 
 import java.util.ArrayList;
 
 public class Principal extends AppCompatActivity {
     ArrayList<Libro> db;
+    ScrollView info;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_principal);
         db = createDatabase();
+        info = (ScrollView)findViewById(R.id.scrollView2);
+
     }
+
+
 
     public ArrayList<Libro> createDatabase( ){
         ArrayList<Libro> basedatos = new ArrayList<>();
@@ -42,6 +48,7 @@ public class Principal extends AppCompatActivity {
         }
         return basedatos;
     }
+
 
 
 }
