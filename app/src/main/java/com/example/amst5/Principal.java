@@ -16,10 +16,13 @@ public class Principal extends AppCompatActivity {
     LinearLayout info;
     EditText et;
     String[] libros;
+    Bundle bundle;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_principal);
+        bundle=getIntent().getExtras();
+
         info = findViewById(R.id.scroll);
         db = createDatabase();
         et = findViewById(R.id.busqueda);
@@ -42,7 +45,7 @@ public class Principal extends AppCompatActivity {
         String book8=  "Drácula|Bram Stoker|Debolsillo|Terror|La narración está ambientada en dos localidades diferentes, entre Inglaterra y Transilvania en el año 1890. El relato inicia cuando Jonathan Harker, quien es un abogado joven debe trasladarse al hogar del Conde Drácula en Transilvania en beneficio de su jefe para brindar apoyo legal concerniente a una negociación de bienes raíces. Harker comienza a verse influenciado por Drácula y es atacado por las sirenas vampiro lo que hace que apenas salga con vida del castillo.|dracula.jpg";
         String book9=  "Viaje al Centro de la tierra|Julio Verne|Alfaguara|Ficción|Viaje al Centro de la Tierra no es más que el relato de una odisea por el mundo subterráneo, entrando desde Islandia. Los participantes activos de la excursión son Otto Lidenbrock, su sobrino Axel y el guía nativo Hans. A partir de un texto de Arne Saknussemm, el científico se plantea si no habrá una galería por la que se pueda acceder al Centro de la Tierra. Tras descifrarlo de una manera extraordinaria, se ponen en marcha con una increíble motivación, dando fe de las grandes inquietudes por el avance científico y por el enriquecimiento personal que puede aportarles este viaje.|viajealcentrodelatierra.jpg";
         String book10= "Fahrenheit 451|Ray Bradbury|Debolsillo|Ficción|La temperatura a la que el papel se enciende y arde. Guy Montag es un bombero y el trabajo de un bombero es quemar libros, que están prohibidos porque son causa de discordia y sufrimiento.|fahrenheit.jpg";
-        String book11= "1984|George Orwell|Penguin Readers|Ficción|Es una novela de distopía cuya trama ocurre en Oceanía, un país dominado por un gobierno totalitario que mantiene en constante vigilancia a sus ciudadanos e, incluso, insiste en espiar sus pensamientos para mantener el orden.|1984.jpg";
+        String book11= "1984|George Orwell|Penguin Readers|Ficción|Es una novela de distopía cuya trama ocurre en Oceanía, un país dominado por un gobierno totalitario que mantiene en constante vigilancia a sus ciudadanos e, incluso, insiste en espiar sus pensamientos para mantener el orden.|foto1984.jpg";
         String book12= "LOS JUEGOS DEL HAMBRE|SUZANNE COLLINS|RBA Libros|Ficción|Es la hora. Ya no hay vuelta atrás. Los juegos van a comenzar. Los tributos deben salir a la Arena y luchar por sobrevivir.Ganar significa Fama y riqueza, perder significa la muerte segura...|hambre.jpg ";
         String book13= "El principito|Antoine de Saint-Exupery|Salamandra|Cuento|En ella, se narra la historia de un piloto que intenta reparar su avión estropeado en medio del desierto del Sahara y quien justo allí se topa con un pequeño príncipe originario de otro planeta, iniciándose así una relación de amistad entre ambos, llegándose a detallar entre sí las anécdotas, particularidades, visiones y percepciones de diversos temas que rodean sus vidas.|principito.jpg";
         String book14= "Alicia en el Pais de las Maravillas|Lewis Carroll|Arrobabooks|Cuento|A lo largo de esta odisea, Alicia sufrirá diversas transformaciones e interactuará con un sinfín de personajes donde experimentará vivencias particulares con cada uno de ellos y que definen en conjunto el verdadero significado de las andanzas que emprende Alicia.|alicia.jpg";
@@ -100,7 +103,9 @@ public class Principal extends AppCompatActivity {
         }
     public void perfil(View view){
         Intent i = new Intent(this, Perfil.class);
-        //i.putExtra("direccion", et1.getText().toString());
+        i.putExtra("usuario",bundle.getString("usuario"));
+        i.putExtra("passsword",bundle.getString("password"));
+
         startActivity(i);
         finish();
     }
