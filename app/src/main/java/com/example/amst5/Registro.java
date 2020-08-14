@@ -21,6 +21,7 @@ public class Registro extends AppCompatActivity {
     EditText userPass;
     EditText userMail;
     EditText userGenero;
+    EditText userNumero;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,13 +34,14 @@ public class Registro extends AppCompatActivity {
         userPass= (EditText) findViewById(R.id.contra);
         userMail= (EditText) findViewById(R.id.correo);
         userGenero= (EditText) findViewById(R.id.genero);
+        userNumero= (EditText) findViewById(R.id.cell);
 
 
     }
     //Funciones de base de datos
     public void ingresar(View v) {
         AdminSQLiteOpenHelper admin = new AdminSQLiteOpenHelper(this,
-                "administracion", null, 1);
+                "grupo5", null, 1);
         SQLiteDatabase bd = admin.getWritableDatabase();
         String nom= userName.getText().toString();
         String apel= userApellido.getText().toString();
@@ -47,8 +49,11 @@ public class Registro extends AppCompatActivity {
         String pass= userPass.getText().toString();
         String mail= userMail.getText().toString();
         String gene= userGenero.getText().toString();
-        bd.execSQL("insert into datos (nombre,apellido,user,contrase,email,genero) values ("
-                +"'"+nom+"','"+apel+"','"+usuario+"','"+pass+"','"+mail+"','"+gene+"'"+")");
+        String celu= userNumero.getText().toString();
+
+
+        bd.execSQL("insert into info (nombre,apellido,user,contrase,email,genero,numTel) values ("
+                +"'"+nom+"','"+apel+"','"+usuario+"','"+pass+"','"+mail+"','"+gene+"','"+celu+"'"+")");
         bd.close();
         userName.setText("");
         userApellido.setText("");
@@ -56,24 +61,27 @@ public class Registro extends AppCompatActivity {
         userPass.setText("");
         userMail.setText("");
         userGenero.setText("");
+        userNumero.setText("");
         Toast.makeText(this, "Se cargaron los datos del artículo",
                 Toast.LENGTH_SHORT).show();
     }
 
     public void consultaporNombre(View v) {
         AdminSQLiteOpenHelper admin = new AdminSQLiteOpenHelper(this,
-                "administracion", null, 1);
+                "grupo5", null, 1);
         SQLiteDatabase bd = admin.getReadableDatabase();
         String namee = userName.getText().toString();
         namee="'"+namee+"'";
         Cursor fila = bd.rawQuery(
-                "select apellido,user,contrase,email,genero from datos where nombre=" + namee, null);
+                "select apellido,user,contrase,email,genero,numTel from info where nombre=" + namee, null);
+
         if (fila.moveToFirst()) {
             userApellido.setText(fila.getString(0));
             userUser.setText(fila.getString(1));
             userPass.setText(fila.getString(2));
             userMail.setText(fila.getString(3));
             userGenero.setText(fila.getString(4));
+            userNumero.setText(fila.getString(5));
         } else
             Toast.makeText(this, "No existe un artículo con dicho Nombre",
                     Toast.LENGTH_SHORT).show();
@@ -83,11 +91,11 @@ public class Registro extends AppCompatActivity {
 
     public void eliminar(View v) {
         AdminSQLiteOpenHelper admin = new AdminSQLiteOpenHelper(this,
-                "administracion", null, 1);
+                "grupo5", null, 1);
         SQLiteDatabase bd = admin.getWritableDatabase();
         String nam= userName.getText().toString();
         nam="'"+nam+"'";
-        bd.execSQL("delete from datos where nombre = "+nam);
+        bd.execSQL("delete from info where nombre = "+nam);
         bd.close();
         userName.setText("");
         userApellido.setText("");

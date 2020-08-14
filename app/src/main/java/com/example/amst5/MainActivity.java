@@ -32,13 +32,13 @@ public class MainActivity extends AppCompatActivity {
     public void ingresar(View view){
         Intent prin = new Intent(MainActivity.this, Principal.class );
         AdminSQLiteOpenHelper admin = new AdminSQLiteOpenHelper(this,
-                "administracion", null, 1);
+                "grupo5", null, 1);
         SQLiteDatabase bd = admin.getReadableDatabase();
         String passw= ingresoContrasena.getText().toString();
         String user1 = ingresoUser.getText().toString();
         user1="'"+user1+"'";
         Cursor fila = bd.rawQuery(
-                "select contrase from datos where user=" + user1, null);
+                "select contrase from info where user=" + user1, null);
         if (fila.moveToFirst()) {
             String password= fila.getString(0);
             if (password.equals(passw)){

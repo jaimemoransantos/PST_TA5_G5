@@ -29,18 +29,18 @@ public class Perfil extends AppCompatActivity {
         user=bundle.getString("usuario");
         tUsuario.setText(user);
         AdminSQLiteOpenHelper admin = new AdminSQLiteOpenHelper(this,
-                "administracion", null, 1);
+                "grupo5", null, 1);
         SQLiteDatabase bd = admin.getReadableDatabase();
 
 
         Cursor fila = bd.rawQuery(
-                "select nombre,apellido,email,genero from datos where user=" + user, null);
+                "select nombre,apellido,email,genero,numTel from info where user=" + user, null);
         if (fila.moveToFirst()) {
             tNombre.setText(fila.getString(0));
             tApellido.setText(fila.getString(1));
             tCorreo.setText(fila.getString(2));
             tFavorito.setText(fila.getString(3));
-            //tCelular.setText(fila.getString(3));
+            tCelular.setText(fila.getString(4));
 
         }
         bd.close();
