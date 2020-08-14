@@ -9,6 +9,7 @@ import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.ScrollView;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 public class Principal extends AppCompatActivity {
@@ -93,10 +94,7 @@ public class Principal extends AppCompatActivity {
     }
         //botones
         public void categoria(View view){
-            Intent i = new Intent(this, CategoriaC.class);
-            i.putExtra("base", db);
-            startActivity(i);
-            finish();
+        
         }
     public void perfil(View view){
         Intent i = new Intent(this, Perfil.class);
