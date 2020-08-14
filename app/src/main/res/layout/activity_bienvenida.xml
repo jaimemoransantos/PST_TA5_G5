@@ -11,7 +11,7 @@
         android:id="@+id/bienvenido"
         android:layout_width="277dp"
         android:layout_height="47dp"
-        android:layout_marginTop="60dp"
+        android:layout_marginTop="44dp"
         android:fontFamily="@font/diplomata"
         android:text="@string/bienvenido"
         android:textAlignment="center"
@@ -23,20 +23,9 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="326dp"
-        android:layout_height="245dp"
-        android:layout_marginTop="20dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.494"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/bienvenido"
-        app:srcCompat="@drawable/dd64da585bc57cb05e5fd4d8ce873f57" />
-
-    <ImageView
         android:id="@+id/imageView3"
-        android:layout_width="409dp"
-        android:layout_height="157dp"
+        android:layout_width="407dp"
+        android:layout_height="129dp"
         android:layout_marginBottom="56dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -47,7 +36,7 @@
         android:id="@+id/nombre"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="196dp"
+        android:layout_marginTop="276dp"
         android:text="The Book Nest"
         android:textColor="#FFFFFF"
         android:textSize="24sp"
@@ -71,5 +60,16 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="319dp"
+        android:layout_height="315dp"
+        android:layout_marginTop="28dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.494"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/bienvenido"
+        app:srcCompat="@drawable/logo" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
