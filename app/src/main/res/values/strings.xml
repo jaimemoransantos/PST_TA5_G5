@@ -5,5 +5,7 @@
     <string name="title_home">Home</string>
     <string name="title_dashboard">Dashboard</string>
     <string name="title_notifications">Notifications</string>
+    <string name="b_squeda_de_libro">Búsqueda de Libro</string>
     <string name="name">Name</string>
+    <string name="todo">TODO</string>
 </resources>
