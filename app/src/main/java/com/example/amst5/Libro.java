@@ -9,7 +9,7 @@ public class Libro {
     private String autor;
     private String editorial;
     private String sinopsis;
-    public Libro( String nomb,String cat, String autor, String editorial, String sinopsis,String ruta){
+    public Libro(String nomb,String cat, String autor, String editorial, String sinopsis,String ruta){
         rutaImagen=ruta;
         titulo=nomb;
         categoria=cat;
