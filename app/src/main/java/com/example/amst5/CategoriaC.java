@@ -4,16 +4,19 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ImageButton;
 
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import java.io.Serializable;
+import java.sql.SQLOutput;
 import java.util.ArrayList;
 
 
 public class CategoriaC extends AppCompatActivity {
+    ImageButton bterror,bromance,bficcion,bcuento;
     String libros=null;
 
 
@@ -34,11 +37,13 @@ public class CategoriaC extends AppCompatActivity {
 
     }
 
-    public void mostrar(){
-        for (Libro l: libros_iterar){
-            libros=l.getAutor();
-        }
+    public void mostrar(String categoria) {
+        for (Libro l : libros_iterar) {
+            if (l.getCategoria().equals(categoria)) {
 
+            }
+
+        }
     }
 
 
@@ -64,8 +69,13 @@ public class CategoriaC extends AppCompatActivity {
         finish();
     }
     public void click_libro(View view) {
-        mostrarDialogo();
-    }
+       // mostrar();
+       // mostrarDialogo();
+        //if ((getResources().getResourceEntryName(b.getId()).equals("imageButtonCuento"))){
+
+
+        }
+
     public void mostrarDialogo(){
         AlertDialog.Builder builder= new AlertDialog.Builder(CategoriaC.this);
         builder.setTitle("Libros");
