@@ -37,7 +37,8 @@ public class Principal extends AppCompatActivity {
         for(String s : libros){
             String[] cortado = s.split("\\|");
             basedatos.add(new Libro(cortado[0], cortado[3], cortado[1], cortado[2], cortado[4], cortado[5]));
-            System.out.println(cortado[0]+" " +cortado[1]+" " + cortado[2]+" " + cortado[3]+" " + cortado[4]+" " + cortado[5]);
+            String l = cortado[0]+" " +cortado[1]+" " + cortado[2]+" " + cortado[3]+" " + cortado[4]+" " + cortado[5];
+            System.out.println(l);
         }
         return basedatos;
     }
