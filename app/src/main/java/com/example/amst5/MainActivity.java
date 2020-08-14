@@ -42,6 +42,8 @@ public class MainActivity extends AppCompatActivity {
         if (fila.moveToFirst()) {
             String password= fila.getString(0);
             if (password.equals(passw)){
+                prin.putExtra("usuario",user1);
+                prin.putExtra("password",passw);
                 startActivity(prin);
             }else
                 Toast.makeText(this, "Contraseña incorrecta",
