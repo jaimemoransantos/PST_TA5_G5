@@ -16,10 +16,13 @@ public class Principal extends AppCompatActivity {
     LinearLayout info;
     EditText et;
     String[] libros;
+    Bundle bundle;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_principal);
+        bundle=getIntent().getExtras();
+
         info = findViewById(R.id.scroll);
         db = createDatabase();
         et = findViewById(R.id.busqueda);
@@ -100,7 +103,9 @@ public class Principal extends AppCompatActivity {
         }
     public void perfil(View view){
         Intent i = new Intent(this, Perfil.class);
-        //i.putExtra("direccion", et1.getText().toString());
+        i.putExtra("usuario",bundle.getString("usuario"));
+        i.putExtra("passsword",bundle.getString("password"));
+
         startActivity(i);
         finish();
     }

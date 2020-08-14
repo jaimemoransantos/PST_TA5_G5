@@ -13,13 +13,16 @@ public class Perfil extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_perfil);
+        Bundle bundle=getIntent().getExtras();
+
         tUsuario=(TextView)findViewById(R.id.textUsuario);
         tNombre=(TextView)findViewById(R.id.textNombre);
         tApellido=(TextView)findViewById(R.id.textApellido);
         tCorreo=(TextView)findViewById(R.id.textCorreo);
         tCelular=(TextView)findViewById(R.id.textCelular);
         tFavorito=(TextView)findViewById(R.id.textFavorito);
-
+        tUsuario.setText(bundle.getString("usuario"));
+        tNombre.setText(bundle.getString("password"));
         AdminSQLiteOpenHelper admin = new AdminSQLiteOpenHelper(this,
                 "administracion", null, 1);
         SQLiteDatabase bd = admin.getReadableDatabase();
