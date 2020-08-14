@@ -4,23 +4,24 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ImageButton;
 
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import java.io.Serializable;
+import java.sql.SQLOutput;
 import java.util.ArrayList;
 
 
 public class CategoriaC extends AppCompatActivity {
+    ImageButton bterror,bromance,bficcion,bcuento;
     String libros=null;
+    ArrayList<Libro> libros_iterar;
 
 
-    //prueba Sheyla
-    Intent intent= getIntent();
-    Bundle args=intent.getBundleExtra("Bundle");
-    ArrayList<Libro> libros_iterar=(ArrayList<Libro>) args.getSerializable("ARRAYLIST");
+
 
 
 
@@ -34,19 +35,29 @@ public class CategoriaC extends AppCompatActivity {
 
     }
 
-    public void mostrar(){
-        for (Libro l: libros_iterar){
-            libros=l.getAutor();
-        }
+    public void mostrar(String categoria) {
+        for (Libro l : libros_iterar) {
+            if (l.getCategoria().equals(categoria)) {
+                libros=l.getTitulo();
 
+            }
+
+        }
     }
 
 
     //botones
     public void categoria(View view) {
         //prueba Sheyla
-        Intent i= new Intent(this,CategoriaC.class);
-        startActivity(i);
+        //Intent i= new Intent(this,CategoriaC.class);
+        //startActivity(i);
+        //finish();
+        //prueba Sheyla
+        Intent intent= getIntent();
+        Bundle args=intent.getBundleExtra("Bundle");
+        libros_iterar=(ArrayList<Libro>) args.getSerializable("ARRAYLIST");
+        Intent ic= new Intent();
+        startActivity(ic);
         finish();
     }
 
@@ -64,8 +75,16 @@ public class CategoriaC extends AppCompatActivity {
         finish();
     }
     public void click_libro(View view) {
-        mostrarDialogo();
-    }
+       // mostrar();
+       // mostrarDialogo();
+        if ((getResources().getResourceEntryName(view.getId()).equals("imageButtonCuento"))){
+            mostrar("Terror");
+            mostrarDialogo();
+        }
+
+
+        }
+
     public void mostrarDialogo(){
         AlertDialog.Builder builder= new AlertDialog.Builder(CategoriaC.this);
         builder.setTitle("Libros");

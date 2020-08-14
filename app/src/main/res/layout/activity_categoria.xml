@@ -22,7 +22,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageButton
-        android:id="@+id/imageButton"
+        android:id="@+id/imageButtonCuento"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="80dp"
@@ -30,14 +30,14 @@
         android:layout_marginEnd="44dp"
         android:background="#FFFCFC"
         android:onClick="click_libro"
-        app:layout_constraintEnd_toStartOf="@+id/imageButton2"
+        app:layout_constraintEnd_toStartOf="@+id/imageButtonTerror"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textViewCat"
         app:srcCompat="@mipmap/ic_cuentos_foreground"
         tools:srcCompat="@mipmap/ic_cuentos_foreground" />
 
     <ImageButton
-        android:id="@+id/imageButton2"
+        android:id="@+id/imageButtonTerror"
         android:layout_width="108dp"
         android:layout_height="112dp"
         android:layout_marginStart="44dp"
@@ -46,12 +46,12 @@
         android:background="#05000000"
         android:onClick="click_libro"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/imageButton"
+        app:layout_constraintStart_toEndOf="@+id/imageButtonCuento"
         app:layout_constraintTop_toBottomOf="@+id/textViewCat"
         app:srcCompat="@mipmap/ic_terror_foreground" />
 
     <ImageButton
-        android:id="@+id/imageButton3"
+        android:id="@+id/imageButtonFiccion"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="80dp"
@@ -59,14 +59,14 @@
         android:background="#0A0F2B"
         android:onClick="click_libro"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/imageButton4"
+        app:layout_constraintEnd_toStartOf="@+id/imageButtonRomance"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageButton"
+        app:layout_constraintTop_toBottomOf="@+id/imageButtonCuento"
         app:layout_constraintVertical_bias="0.407"
         app:srcCompat="@mipmap/ic_ficcion_foreground" />
 
     <ImageButton
-        android:id="@+id/imageButton4"
+        android:id="@+id/imageButtonRomance"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="41dp"
@@ -77,8 +77,8 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.913"
-        app:layout_constraintStart_toEndOf="@+id/imageButton3"
-        app:layout_constraintTop_toBottomOf="@+id/imageButton2"
+        app:layout_constraintStart_toEndOf="@+id/imageButtonFiccion"
+        app:layout_constraintTop_toBottomOf="@+id/imageButtonTerror"
         app:layout_constraintVertical_bias="0.392"
         app:srcCompat="@mipmap/ic_romance_foreground" />
 
@@ -88,11 +88,11 @@
         android:layout_height="27dp"
         android:text="Cuento"
         android:textAlignment="center"
-        app:layout_constraintBottom_toTopOf="@+id/imageButton3"
-        app:layout_constraintEnd_toEndOf="@+id/imageButton"
+        app:layout_constraintBottom_toTopOf="@+id/imageButtonFiccion"
+        app:layout_constraintEnd_toEndOf="@+id/imageButtonCuento"
         app:layout_constraintHorizontal_bias="0.534"
-        app:layout_constraintStart_toStartOf="@+id/imageButton"
-        app:layout_constraintTop_toBottomOf="@+id/imageButton"
+        app:layout_constraintStart_toStartOf="@+id/imageButtonCuento"
+        app:layout_constraintTop_toBottomOf="@+id/imageButtonCuento"
         app:layout_constraintVertical_bias="0.0" />
 
     <TextView
@@ -101,11 +101,11 @@
         android:layout_height="26dp"
         android:text="Terror"
         android:textAlignment="center"
-        app:layout_constraintBottom_toTopOf="@+id/imageButton4"
-        app:layout_constraintEnd_toEndOf="@+id/imageButton2"
+        app:layout_constraintBottom_toTopOf="@+id/imageButtonRomance"
+        app:layout_constraintEnd_toEndOf="@+id/imageButtonTerror"
         app:layout_constraintHorizontal_bias="0.589"
-        app:layout_constraintStart_toStartOf="@+id/imageButton2"
-        app:layout_constraintTop_toBottomOf="@+id/imageButton2"
+        app:layout_constraintStart_toStartOf="@+id/imageButtonTerror"
+        app:layout_constraintTop_toBottomOf="@+id/imageButtonTerror"
         app:layout_constraintVertical_bias="0.0" />
 
     <TextView
@@ -115,10 +115,10 @@
         android:text="Ficcion"
         android:textAlignment="center"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/imageButton3"
+        app:layout_constraintEnd_toEndOf="@+id/imageButtonFiccion"
         app:layout_constraintHorizontal_bias="0.333"
-        app:layout_constraintStart_toStartOf="@+id/imageButton3"
-        app:layout_constraintTop_toBottomOf="@+id/imageButton3"
+        app:layout_constraintStart_toStartOf="@+id/imageButtonFiccion"
+        app:layout_constraintTop_toBottomOf="@+id/imageButtonFiccion"
         app:layout_constraintVertical_bias="0.0" />
 
     <TextView
@@ -128,10 +128,10 @@
         android:text="Romance"
         android:textAlignment="center"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/imageButton4"
+        app:layout_constraintEnd_toEndOf="@+id/imageButtonRomance"
         app:layout_constraintHorizontal_bias="0.51"
-        app:layout_constraintStart_toStartOf="@+id/imageButton4"
-        app:layout_constraintTop_toBottomOf="@+id/imageButton4"
+        app:layout_constraintStart_toStartOf="@+id/imageButtonRomance"
+        app:layout_constraintTop_toBottomOf="@+id/imageButtonRomance"
         app:layout_constraintVertical_bias="0.0" />
 
     <Button
