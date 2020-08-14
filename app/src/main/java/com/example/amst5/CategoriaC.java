@@ -14,20 +14,20 @@ public class CategoriaC extends AppCompatActivity{
         setContentView(R.layout.activity_categoria);
     }
 //codigo
-public void lista(View view) {
-    Intent i = new Intent(this, MainActivity.class );
+public void categoria(View view) {
+    Intent i = new Intent(this, CategoriaC.class );
     //i.putExtra("direccion", et1.getText().toString());
     startActivity(i);
     finish();
 }
     public void principal(View view) {
-        Intent i = new Intent(this, MainActivity.class );
+        Intent i = new Intent(this, Principal.class );
         //i.putExtra("direccion", et1.getText().toString());
         startActivity(i);
         finish();
     }
     public void perfil(View view) {
-        Intent i = new Intent(this, MainActivity.class );
+        Intent i = new Intent(this, Perfil.class );
         //i.putExtra("direccion", et1.getText().toString());
         startActivity(i);
         finish();
