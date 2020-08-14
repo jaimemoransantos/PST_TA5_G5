@@ -6,64 +6,79 @@
     android:layout_height="match_parent"
     tools:context=".Perfil">
 
-    <ScrollView
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+    <ImageView
+        android:id="@+id/imageView5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="60dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0">
+        app:srcCompat="@drawable/perfil" />
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
+    <TextView
+        android:id="@+id/textNombre"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="48dp"
+        android:layout_marginTop="32dp"
+        android:text="Nombre"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textUsuario" />
 
-            <ImageView
-                android:id="@+id/imageView5"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                tools:srcCompat="@tools:sample/avatars" />
+    <TextView
+        android:id="@+id/textApellido"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="48dp"
+        android:layout_marginTop="24dp"
+        android:text="Apellido"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textNombre" />
 
-            <TextView
-                android:id="@+id/textUsuario"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Usuario"
-                android:textAlignment="textStart" />
+    <TextView
+        android:id="@+id/textUsuario"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="Usuario"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView5" />
 
-            <TextView
-                android:id="@+id/textNombre"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Nombres" />
+    <TextView
+        android:id="@+id/textCorreo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="48dp"
+        android:layout_marginTop="20dp"
+        android:text="Correo"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textApellido" />
 
-            <TextView
-                android:id="@+id/textApellido"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Apellidos" />
+    <TextView
+        android:id="@+id/textCelular"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="48dp"
+        android:layout_marginTop="20dp"
+        android:text="Celular"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textCorreo" />
 
-            <TextView
-                android:id="@+id/textCorreo"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Correo" />
-
-            <TextView
-                android:id="@+id/textCelular"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Celular" />
-
-            <TextView
-                android:id="@+id/textFavorito"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Favorito" />
-
-        </LinearLayout>
-    </ScrollView>
+    <TextView
+        android:id="@+id/textFavorito"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="48dp"
+        android:layout_marginTop="24dp"
+        android:text="Favorito"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textCelular" />
 </androidx.constraintlayout.widget.ConstraintLayout>
