@@ -4,6 +4,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
+import com.example.amst5.R;
+
 public class Registro extends AppCompatActivity {
 
     @Override
@@ -13,4 +15,5 @@ public class Registro extends AppCompatActivity {
     }
     //ya
 
-}
+
+    }
