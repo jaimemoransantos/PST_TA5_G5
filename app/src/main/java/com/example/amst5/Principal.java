@@ -21,6 +21,7 @@ public class Principal extends AppCompatActivity {
     EditText et;
     String[] libros;
     Bundle bundle;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -64,6 +65,7 @@ public class Principal extends AppCompatActivity {
     }
 
     public void agregarInfo(LinearLayout ll) {
+        ll.removeAllViews();
         for (Libro l : db) {
             LinearLayout llh = new LinearLayout(ll.getContext());
             llh.setOrientation(LinearLayout.HORIZONTAL);
@@ -96,6 +98,50 @@ public class Principal extends AppCompatActivity {
             ll.addView(llh);
 
         }
+    }
+
+    public void filtrado(String filtro) {
+        info.removeAllViews();
+        for (Libro l : db) {
+            LinearLayout llh = new LinearLayout(info.getContext());
+            llh.setOrientation(LinearLayout.HORIZONTAL);
+            ImageView fotito = new ImageView(llh.getContext());
+            String nombre = "@drawable/" + l.getRuta();
+            int recurso = getResources().getIdentifier(nombre, null, getPackageName());
+            fotito.setImageResource(recurso);
+            LinearLayout llv = new LinearLayout(llh.getContext());
+            llv.setOrientation(LinearLayout.VERTICAL);
+            TextView titulo = new TextView(llv.getContext());
+            titulo.setText(l.getTitulo());
+            System.out.println(l.getTitulo());
+            TextView autor = new TextView(llv.getContext());
+            autor.setText(l.getAutor());
+            System.out.println(l.getAutor());
+            TextView editorial = new TextView(llv.getContext());
+            editorial.setText(l.getEditorial());
+            System.out.println(l.getEditorial());
+            TextView categoria = new TextView(llv.getContext());
+            categoria.setText(l.getCategoria());
+            System.out.println(l.getCategoria());
+            System.out.println(l.getRuta());
+            System.out.println();
+
+            if(titulo.getText().toString().contains(filtro) || autor.getText().toString().contains(filtro) ||
+                    editorial.getText().toString().contains(filtro) || categoria.getText().toString().contains(filtro)) {
+                llv.addView(titulo);
+                llv.addView(autor);
+                llv.addView(editorial);
+                llv.addView(categoria);
+                llh.addView(fotito);
+                llh.addView(llv);
+                info.addView(llh);
+            }
+        }
+    }
+
+    public void busqueda(View view){
+        String search = et.getText().toString();
+        filtrado(search);
     }
         //botones
         public void categoria(View view){
