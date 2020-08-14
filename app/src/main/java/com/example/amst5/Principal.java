@@ -94,7 +94,7 @@ public class Principal extends AppCompatActivity {
         //botones
         public void categoria(View view){
             Intent i = new Intent(this, CategoriaC.class);
-            //i.putExtra("direccion", et1.getText().toString());
+            i.putExtra("base", db);
             startActivity(i);
             finish();
         }
