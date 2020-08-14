@@ -6,9 +6,11 @@ import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
+
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
+
 
 public class Perfil extends AppCompatActivity {
     TextView tUsuario,tNombre,tApellido,tCorreo,tCelular,tFavorito;
@@ -54,10 +56,8 @@ public class Perfil extends AppCompatActivity {
         finish();
     }
     public void perfil(View view){
-        Intent i = new Intent(this, Perfil.class);
-
-        startActivity(i);
-        finish();
+        Toast toast1 = Toast.makeText(getApplicationContext(), "Ya se encuentra dentro de Perfil", Toast.LENGTH_SHORT);
+        toast1.show();
     }
     public void principal(View view){
         Intent i = new Intent(this, Principal.class);
