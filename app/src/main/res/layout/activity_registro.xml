@@ -128,6 +128,27 @@
                 android:inputType="textPersonName" />
 
             <TextView
+                android:id="@+id/tee"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="16dp"
+                android:text="Telefono:"
+                android:textColor="#002035"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/cell"
+                android:layout_width="350dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="12dp"
+                android:ems="10"
+                android:hint="Ingrese su numero de telefono"
+                android:inputType="number" />
+
+            <TextView
                 android:id="@+id/textView10"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
