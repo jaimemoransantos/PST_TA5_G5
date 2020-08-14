@@ -2,32 +2,16 @@ package com.example.amst5;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Context;
+
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
-import android.os.Environment;
-import android.telephony.SmsManager;
-import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.io.OutputStreamWriter;
-import java.nio.Buffer;
-import java.text.DateFormat;
 
-import com.example.amst5.R;
 
 public class Registro extends AppCompatActivity {
     private static final String name= "info.txt";
@@ -115,131 +99,8 @@ public class Registro extends AppCompatActivity {
         Toast.makeText(this, "Se borró el artículo con dicho código",
                 Toast.LENGTH_SHORT).show();
     }
-
-    /*public void modificacion(View v) {
-        AdminSQLiteOpenHelper admin = new AdminSQLiteOpenHelper(this,
-                "administracion", null, 1);
-        SQLiteDatabase bd = admin.getWritableDatabase();
-        String cod = et1.getText().toString();
-        String descri = et2.getText().toString();
-        String pre = et3.getText().toString();
-        bd.execSQL("update articulos set codigo="+cod+",descripcion='"+descri+"',precio="+pre+" where codigo="+cod);
-        bd.close();
-        Toast.makeText(this, "se modificaron los datos", Toast.LENGTH_SHORT)
-                .show();
-    }*/
-
-
-    /*private void writeToFile(String data,Context context) {
-        try {
-            OutputStreamWriter outputStreamWriter = new OutputStreamWriter(context.openFileOutput("datos.txt", Context.MODE_PRIVATE));
-            outputStreamWriter.write(data);
-            outputStreamWriter.close();
-        }
-        catch (IOException e) {
-            Log.e("Exception", "File write failed: " + e.toString());
-        }
+    public void regresar(View v){
+        finish();
     }
 
-    private String readFromFile(Context context) {
-
-        String ret = "";
-
-        try {
-            InputStream inputStream = context.openFileInput("data.txt");
-
-            if ( inputStream != null ) {
-                InputStreamReader inputStreamReader = new InputStreamReader(inputStream);
-                BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
-                String receiveString = "";
-                StringBuilder stringBuilder = new StringBuilder();
-
-                while ( (receiveString = bufferedReader.readLine()) != null ) {
-                    stringBuilder.append("\n").append(receiveString);
-                }
-
-                inputStream.close();
-                ret = stringBuilder.toString();
-            }
-        }
-        catch (FileNotFoundException e) {
-            Log.e("login activity", "File not found: " + e.toString());
-        } catch (IOException e) {
-            Log.e("login activity", "Can not read file: " + e.toString());
-        }
-
-        return ret;
-    }*/
-
-        /*try {
-            File root = new File(Environment.getExternalStorageDirectory(), "My Folder");
-            if (!root.exists()) {
-                root.mkdirs(); // this will create folder.
-            }
-            File filepath = new File(root, "info.txt"); // file path to save
-            FileWriter writer = new FileWriter(filepath);
-            writer.append(linea);
-            writer.flush();
-            writer.close();
-
-
-        } catch (IOException e) {
-            e.printStackTrace();
-        }*/
-
-
-        /*try {
-            fos= openFileOutput(name,MODE_PRIVATE);
-
-            fos.write(linea.getBytes());
-            Toast.makeText(this, "Saved to "+ getFilesDir()+"/"+ name,Toast.LENGTH_LONG).show();
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        } finally {
-            if (fos != null){
-                try {
-                    fos.close();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-            }
-        }
-
-
-    }
-    public void Mostrar(View V){
-        FileInputStream fis=null;
-        try {
-            fis=openFileInput(name);
-            InputStreamReader isr= new InputStreamReader(fis);
-            BufferedReader br= new BufferedReader(isr);
-            StringBuilder sb= new StringBuilder();
-            String text;
-            while((text=br.readLine())!= null){
-                sb.append(text).append("\n");
-
-            }
-            prueba.setText(sb.toString());
-
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        } finally{
-            if (fis != null){
-                try {
-                    fis.close();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-            }
-        }
-    }*/
-
-
-    //ya
-
-
-    }
+}
