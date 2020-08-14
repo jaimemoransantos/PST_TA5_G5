@@ -58,7 +58,7 @@
         android:layout_height="100dp"
         android:background="#00FFFFFF"
         android:contentDescription="@null"
-        android:onClick="perfilV"
+        android:onClick="perfil"
         android:scaleType="fitCenter"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.508"

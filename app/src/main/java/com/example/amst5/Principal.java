@@ -2,7 +2,9 @@ package com.example.amst5;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.ScrollView;
@@ -56,8 +58,8 @@ public class Principal extends AppCompatActivity {
         return basedatos;
     }
 
-    public void agregarInfo(LinearLayout ll){
-        for(Libro l: db){
+    public void agregarInfo(LinearLayout ll) {
+        for (Libro l : db) {
             LinearLayout llh = new LinearLayout(ll.getContext());
             llh.setOrientation(LinearLayout.HORIZONTAL);
             EditText imagen = new EditText(llh.getContext());
@@ -80,9 +82,29 @@ public class Principal extends AppCompatActivity {
             llh.addView(llv);
 
         }
-
-
     }
+        //botones
+        public void categoria(View view){
+            Intent i = new Intent(this, CategoriaC.class);
+            //i.putExtra("direccion", et1.getText().toString());
+            startActivity(i);
+            finish();
+        }
+    public void perfil(View view){
+        Intent i = new Intent(this, Perfil.class);
+        //i.putExtra("direccion", et1.getText().toString());
+        startActivity(i);
+        finish();
+    }
+    public void principal(View view){
+        Intent i = new Intent(this, Principal.class);
+        //i.putExtra("direccion", et1.getText().toString());
+        startActivity(i);
+        finish();
+    }
+
+
+
 
 
 

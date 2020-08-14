@@ -10,8 +10,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Perfil"></activity>
+        <activity android:name=".Perfil" />
         <activity android:name=".Registro" />
+        <activity android:name=".CategoriaC" />
         <activity android:name=".Principal" />
         <activity android:name=".Bienvenida">
             <intent-filter>
