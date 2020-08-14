@@ -4,66 +4,182 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#009688"
     tools:context=".Perfil">
 
-    <ScrollView
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0">
+        app:layout_constraintTop_toTopOf="parent">
 
-        <LinearLayout
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:background="#88563C">
 
-            <ImageView
-                android:id="@+id/imageView5"
-                android:layout_width="match_parent"
+            <TextView
+                android:id="@+id/textView13"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                tools:srcCompat="@tools:sample/avatars" />
+                android:layout_marginTop="8dp"
+                android:fontFamily="@font/diplomata"
+                android:text="Perfiles"
+                android:textSize="24sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.048"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <Button
+                android:id="@+id/button5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Salir"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.895"
+                app:layout_constraintStart_toEndOf="@+id/textView13"
+                app:layout_constraintTop_toTopOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="210dp">
+
+            <FrameLayout
+                android:id="@+id/frameLayout"
+                android:layout_width="221dp"
+                android:layout_height="166dp"
+                android:layout_marginTop="24dp"
+                android:background="#03A9F4"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <ImageView
+                    android:id="@+id/imageView10"
+                    android:layout_width="match_parent"
+                    android:layout_height="134dp"
+                    app:srcCompat="@drawable/leyendo1" />
+
+            </FrameLayout>
 
             <TextView
                 android:id="@+id/textUsuario"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="119dp"
+                android:layout_height="27dp"
+                android:layout_marginTop="155dp"
                 android:text="Usuario"
-                android:textAlignment="textStart" />
+                android:textAlignment="center"
+                android:textColor="#FFFFFF"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.498"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
-            <TextView
-                android:id="@+id/textNombre"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Nombres" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
-            <TextView
-                android:id="@+id/textApellido"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Apellidos" />
+        <TextView
+            android:id="@+id/textNombre"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30dp"
+            android:text="Nombres"
+            android:textSize="18sp" />
 
-            <TextView
-                android:id="@+id/textCorreo"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Correo" />
+        <TextView
+            android:id="@+id/textApellido"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="15dp"
+            android:text="Apellidos"
+            android:textSize="18sp" />
 
-            <TextView
-                android:id="@+id/textCelular"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Celular" />
+        <TextView
+            android:id="@+id/textCorreo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="15dp"
+            android:text="Correo"
+            android:textSize="18sp" />
 
-            <TextView
-                android:id="@+id/textFavorito"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Favorito" />
+        <TextView
+            android:id="@+id/textCelular"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="15dp"
+            android:text="Celular"
+            android:textSize="18sp" />
 
-        </LinearLayout>
-    </ScrollView>
+        <TextView
+            android:id="@+id/textFavorito"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginBottom="30dp"
+            android:text="Favorito"
+            android:textSize="18sp" />
+
+    </LinearLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout"
+        android:layout_width="413dp"
+        android:layout_height="142dp"
+        android:background="#88563C"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <ImageButton
+            android:id="@+id/perfil"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_marginEnd="24dp"
+            android:background="#00FFFFFF"
+            android:contentDescription="@null"
+            android:scaleType="fitCenter"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/perfil" />
+
+        <ImageButton
+            android:id="@+id/principal"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_marginEnd="156dp"
+            android:layout_marginBottom="24dp"
+            android:background="#00FFFFFF"
+            android:contentDescription="@null"
+            android:scaleType="fitCenter"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.976"
+            app:layout_constraintStart_toEndOf="@+id/cate"
+            app:srcCompat="@drawable/home" />
+
+        <ImageButton
+            android:id="@+id/cate"
+            android:layout_width="91dp"
+            android:layout_height="83dp"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="16dp"
+            android:background="#00FFFFFF"
+            android:contentDescription="@null"
+            android:scaleType="fitCenter"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/menucat" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
