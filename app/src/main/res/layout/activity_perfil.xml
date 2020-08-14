@@ -28,8 +28,9 @@
                 android:fontFamily="@font/diplomata"
                 android:text="Perfiles"
                 android:textSize="24sp"
+                android:textStyle="italic"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.048"
+                app:layout_constraintHorizontal_bias="0.115"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -37,6 +38,7 @@
                 android:id="@+id/button5"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:onClick="salir"
                 android:text="Salir"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.895"
@@ -132,8 +134,8 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintLayout"
-        android:layout_width="413dp"
-        android:layout_height="142dp"
+        android:layout_width="0dp"
+        android:layout_height="104dp"
         android:background="#88563C"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -142,43 +144,49 @@
 
         <ImageButton
             android:id="@+id/perfil"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:layout_marginEnd="24dp"
+            android:layout_width="85dp"
+            android:layout_height="85dp"
+            android:layout_marginEnd="44dp"
             android:background="#00FFFFFF"
             android:contentDescription="@null"
+            android:onClick="perfil"
             android:scaleType="fitCenter"
+            android:tint="#471F0A"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.578"
             app:srcCompat="@drawable/perfil" />
 
         <ImageButton
             android:id="@+id/principal"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:layout_marginEnd="156dp"
-            android:layout_marginBottom="24dp"
+            android:layout_width="85dp"
+            android:layout_height="85dp"
+            android:layout_marginBottom="8dp"
             android:background="#00FFFFFF"
             android:contentDescription="@null"
+            android:onClick="principal"
             android:scaleType="fitCenter"
+            android:tint="#471F0A"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.976"
+            app:layout_constraintEnd_toStartOf="@+id/perfil"
+            app:layout_constraintHorizontal_bias="0.537"
             app:layout_constraintStart_toEndOf="@+id/cate"
             app:srcCompat="@drawable/home" />
 
         <ImageButton
             android:id="@+id/cate"
-            android:layout_width="91dp"
-            android:layout_height="83dp"
-            android:layout_marginStart="24dp"
-            android:layout_marginTop="16dp"
+            android:layout_width="75dp"
+            android:layout_height="75dp"
+            android:layout_marginStart="36dp"
+            android:layout_marginBottom="12dp"
             android:background="#00FFFFFF"
             android:contentDescription="@null"
+            android:onClick="categoria"
             android:scaleType="fitCenter"
+            android:tint="#5A2C13"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@drawable/menucat" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
