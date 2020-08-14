@@ -9,6 +9,7 @@ import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.ScrollView;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 public class Principal extends AppCompatActivity {
@@ -96,8 +97,14 @@ public class Principal extends AppCompatActivity {
     }
         //botones
         public void categoria(View view){
-            Intent i = new Intent(this, CategoriaC.class);
-            startActivity(i);
+
+//modificado Sheyla
+            ArrayList<Libro> libros_base= db;
+            Intent intent= new Intent(this, CategoriaC.class);
+            Bundle args= new Bundle();
+            args.putSerializable("ARRAYLIST",(Serializable)libros_base);
+            intent.putExtra("BUNDLE",args);
+            startActivity(intent);
             finish();
     }
     public void perfil(View view){
