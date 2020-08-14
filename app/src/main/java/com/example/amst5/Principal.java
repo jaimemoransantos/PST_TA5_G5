@@ -12,6 +12,7 @@ import android.widget.LinearLayout;
 import android.widget.ScrollView;
 import android.widget.TextView;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 public class Principal extends AppCompatActivity {
@@ -100,22 +101,25 @@ public class Principal extends AppCompatActivity {
     }
         //botones
         public void categoria(View view){
-            Intent i = new Intent(this, CategoriaC.class);
-            i.putExtra("base", db);
-            startActivity(i);
+
+//modificado Sheyla
+            ArrayList<Libro> libros_base= db;
+            Intent intent= new Intent(this, CategoriaC.class);
+            Bundle args= new Bundle();
+            args.putSerializable("ARRAYLIST",(Serializable)libros_base);
+            intent.putExtra("BUNDLE",args);
+            startActivity(intent);
             finish();
-        }
+    }
     public void perfil(View view){
         Intent i = new Intent(this, Perfil.class);
         i.putExtra("usuario",bundle.getString("usuario"));
         i.putExtra("passsword",bundle.getString("password"));
-
         startActivity(i);
         finish();
     }
     public void principal(View view){
         Intent i = new Intent(this, Principal.class);
-        //i.putExtra("direccion", et1.getText().toString());
         startActivity(i);
         finish();
     }
