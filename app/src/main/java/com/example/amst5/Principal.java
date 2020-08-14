@@ -3,19 +3,26 @@ package com.example.amst5;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.ScrollView;
 
 import java.util.ArrayList;
 
 public class Principal extends AppCompatActivity {
     ArrayList<Libro> db;
-    ScrollView info;
+    LinearLayout info;
+    EditText et;
+    String[] libros;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_principal);
+        info = findViewById(R.id.scroll);
         db = createDatabase();
-        info = (ScrollView)findViewById(R.id.scrollView2);
+        et = findViewById(R.id.busqueda);
+        agregarInfo(info);
+
 
     }
 
@@ -39,7 +46,7 @@ public class Principal extends AppCompatActivity {
         String book14= "Alicia en el Pais de las Maravillas|Lewis Carroll|Arrobabooks|Cuento|A lo largo de esta odisea, Alicia sufrirá diversas transformaciones e interactuará con un sinfín de personajes donde experimentará vivencias particulares con cada uno de ellos y que definen en conjunto el verdadero significado de las andanzas que emprende Alicia.|alicia.jpg";
         String book15= "Cuentos de la selva|Horacio Quiroga|Anaya|Cuento|El argumento de estos relatos, con alto sentido ecológico e independientes unos de otros, caracteriza diversas vivencias anecdóticas enfatizadas en las relaciones tanto de unión como rivalidad que llegan a desarrollar los animales y los humanos entre sí y cómo el desenlace de estas transmite de forma reflexiva el respeto, la estima y la consideración que se debe tener por la naturaleza.|cuentosdelaselva.jpg";
         String book16= "Las aventuras de pinocho|Carlo Collodi|Siruela|Cuento|Es un cuento que narra las vivencias que experimenta Pinocho, una marioneta de madera creada por Geppetto, un viejo carpintero, a lo largo de treinta y seis capítulos donde se describe el agitado viaje que le llevará a lugares y situaciones impensables junto a una diversidad de personajes que le acompañan durante su odisea, en la que además de querer volver a casa está el persistente deseo de poder convertirse en un niño real.|aventuradepinocho.jpg";
-        String[] libros = {book1,book2,book3,book4,book5,book6,book7,book8,book9,book10,book11,book12,book13,book14,book15,book16};
+        libros = new String[]{book1, book2, book3, book4, book5, book6, book7, book8, book9, book10, book11, book12, book13, book14, book15, book16};
         for(String s : libros){
             String[] cortado = s.split("\\|");
             basedatos.add(new Libro(cortado[0], cortado[3], cortado[1], cortado[2], cortado[4], cortado[5]));
@@ -49,6 +56,33 @@ public class Principal extends AppCompatActivity {
         return basedatos;
     }
 
+    public void agregarInfo(LinearLayout ll){
+        for(Libro l: db){
+            LinearLayout llh = new LinearLayout(ll.getContext());
+            llh.setOrientation(LinearLayout.HORIZONTAL);
+            EditText imagen = new EditText(llh.getContext());
+            imagen.setText(l.getRuta());
+            LinearLayout llv = new LinearLayout(llh.getContext());
+            llv.setOrientation(LinearLayout.VERTICAL);
+            EditText titulo = new EditText(llv.getContext());
+            titulo.setText(l.getTitulo());
+            EditText autor = new EditText(llv.getContext());
+            autor.setText(l.getAutor());
+            EditText editorial = new EditText(llv.getContext());
+            editorial.setText(l.getEditorial());
+            EditText categoria = new EditText(llv.getContext());
+            categoria.setText(l.getCategoria());
+            llv.addView(titulo);
+            llv.addView(autor);
+            llv.addView(editorial);
+            llv.addView(categoria);
+            llh.addView(imagen);
+            llh.addView(llv);
+
+        }
+
+
+    }
 
 
 }
