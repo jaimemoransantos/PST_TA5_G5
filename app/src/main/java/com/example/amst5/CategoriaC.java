@@ -18,12 +18,10 @@ import java.util.ArrayList;
 public class CategoriaC extends AppCompatActivity {
     ImageButton bterror,bromance,bficcion,bcuento;
     String libros=null;
+    ArrayList<Libro> libros_iterar;
 
 
-    //prueba Sheyla
-    Intent intent= getIntent();
-    Bundle args=intent.getBundleExtra("Bundle");
-    ArrayList<Libro> libros_iterar=(ArrayList<Libro>) args.getSerializable("ARRAYLIST");
+
 
 
 
@@ -40,6 +38,7 @@ public class CategoriaC extends AppCompatActivity {
     public void mostrar(String categoria) {
         for (Libro l : libros_iterar) {
             if (l.getCategoria().equals(categoria)) {
+                libros=l.getTitulo();
 
             }
 
@@ -50,8 +49,15 @@ public class CategoriaC extends AppCompatActivity {
     //botones
     public void categoria(View view) {
         //prueba Sheyla
-        Intent i= new Intent(this,CategoriaC.class);
-        startActivity(i);
+        //Intent i= new Intent(this,CategoriaC.class);
+        //startActivity(i);
+        //finish();
+        //prueba Sheyla
+        Intent intent= getIntent();
+        Bundle args=intent.getBundleExtra("Bundle");
+        libros_iterar=(ArrayList<Libro>) args.getSerializable("ARRAYLIST");
+        Intent ic= new Intent();
+        startActivity(ic);
         finish();
     }
 
@@ -71,7 +77,10 @@ public class CategoriaC extends AppCompatActivity {
     public void click_libro(View view) {
        // mostrar();
        // mostrarDialogo();
-        //if ((getResources().getResourceEntryName(b.getId()).equals("imageButtonCuento"))){
+        if ((getResources().getResourceEntryName(view.getId()).equals("imageButtonCuento"))){
+            mostrar("Terror");
+            mostrarDialogo();
+        }
 
 
         }
