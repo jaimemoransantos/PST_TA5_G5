@@ -62,6 +62,7 @@ public class Principal extends AppCompatActivity {
         for (Libro l : db) {
             LinearLayout llh = new LinearLayout(ll.getContext());
             llh.setOrientation(LinearLayout.HORIZONTAL);
+
             EditText imagen = new EditText(llh.getContext());
             imagen.setText(l.getRuta());
             LinearLayout llv = new LinearLayout(llh.getContext());
