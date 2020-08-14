@@ -30,7 +30,7 @@ public class Principal extends AppCompatActivity {
 
 
 
-    public ArrayList<Libro> createDatabase( ){
+    public  ArrayList<Libro> createDatabase( ){
         ArrayList<Libro> basedatos = new ArrayList<>();
         String book1=  "Romeo y Julieta|William Shakespeare|Juventud|Romance|En Verona, dos jóvenes enamorados, de dos familias enemigas, son víctimas de una situación de odio y violencia que ni desean ni pueden remediar. En una de esas tardes de verano en que el calor inflama la sangre, Romeo, recién casado en secreto con su amada Julieta, mata al primo de ésta.|romeoyjulieta.jpg";
         String book2=  "50 sombras de Grey|E L James|GRIJALBO|Romance|Cuando la joven Anastasia conoce al poderoso y enigmático Christian Grey, comienzan un excitante, sensual y atormentado romance. Erótica, entretenida y profundamente conmovedora, la serie Cincuenta sombras es una historia que te cautivará, te poseerá y se quedará contigo por siempre.|cincuentasombras.jpg";
@@ -94,7 +94,7 @@ public class Principal extends AppCompatActivity {
         //botones
         public void categoria(View view){
             Intent i = new Intent(this, CategoriaC.class);
-            //i.putExtra("direccion", et1.getText().toString());
+            i.putExtra("base", db);
             startActivity(i);
             finish();
         }
