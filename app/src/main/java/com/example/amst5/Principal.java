@@ -7,11 +7,12 @@ import android.os.Bundle;
 import java.util.ArrayList;
 
 public class Principal extends AppCompatActivity {
-    Libro[] db;
+    ArrayList<Libro> db;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_principal);
+        db = createDatabase();
     }
 
     public ArrayList<Libro> createDatabase( ){
@@ -36,6 +37,7 @@ public class Principal extends AppCompatActivity {
         for(String s : libros){
             String[] cortado = s.split("\\|");
             basedatos.add(new Libro(cortado[0], cortado[3], cortado[1], cortado[2], cortado[4], cortado[5]));
+            System.out.println(cortado[0]+" " +cortado[1]+" " + cortado[2]+" " + cortado[3]+" " + cortado[4]+" " + cortado[5]);
         }
         return basedatos;
     }
