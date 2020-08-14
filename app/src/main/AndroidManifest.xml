@@ -10,7 +10,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Registro$Categoria"></activity>
+        <activity android:name=".Perfil"></activity>
         <activity android:name=".Registro" />
         <activity android:name=".Principal" />
         <activity android:name=".Bienvenida">
