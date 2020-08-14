@@ -2,7 +2,9 @@ package com.example.amst5;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ScrollView;
 
 import java.util.ArrayList;
@@ -47,6 +49,17 @@ public class Principal extends AppCompatActivity {
             System.out.println(l);
         }
         return basedatos;
+    }
+    public void categoria(View view){
+        Intent i = new Intent(this, CategoriaC.class );
+        startActivity(i);
+    }
+    public void perfilV(View view){
+        Intent i = new Intent( this, Perfil.class );
+        startActivity(i);
+    }
+    public void principal(View view){
+        finish();
     }
 
 
