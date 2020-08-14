@@ -2,10 +2,14 @@ package com.example.amst5;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.widget.TextView;
+import android.view.View;
+
+import java.io.InputStreamReader;
 
 public class Perfil extends AppCompatActivity {
     TextView tUsuario,tNombre,tApellido,tCorreo,tCelular,tFavorito;
@@ -28,5 +32,28 @@ public class Perfil extends AppCompatActivity {
         //user1="'"+user1+"'";
         //Cursor fila = bd.rawQuery(
         //        "select contrase from datos where user=" + user1, null);
+    }
+
+    public void categoria(View view){
+        Intent i = new Intent(this, CategoriaC.class);
+        //i.putExtra("direccion", et1.getText().toString());
+        startActivity(i);
+        finish();
+    }
+    public void perfil(View view){
+        Intent i = new Intent(this, Perfil.class);
+        //i.putExtra("direccion", et1.getText().toString());
+        startActivity(i);
+        finish();
+    }
+    public void principal(View view){
+        Intent i = new Intent(this, Principal.class);
+        //i.putExtra("direccion", et1.getText().toString());
+        startActivity(i);
+        finish();
+    }
+
+    public void  salir(View view){
+        finish();
     }
 }
