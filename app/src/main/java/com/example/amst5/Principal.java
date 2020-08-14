@@ -62,21 +62,22 @@ public class Principal extends AppCompatActivity {
         for (Libro l : db) {
             LinearLayout llh = new LinearLayout(ll.getContext());
             llh.setOrientation(LinearLayout.HORIZONTAL);
+
             EditText imagen = new EditText(llh.getContext());
-            imagen.setText(l.getRuta().toString());
+            imagen.setText(l.getRuta());
             LinearLayout llv = new LinearLayout(llh.getContext());
             llv.setOrientation(LinearLayout.VERTICAL);
             EditText titulo = new EditText(llv.getContext());
-            titulo.setText(l.getTitulo().toString());
+            titulo.setText(l.getTitulo());
             System.out.println(l.getTitulo());
             EditText autor = new EditText(llv.getContext());
-            autor.setText(l.getAutor().toString());
+            autor.setText(l.getAutor());
             System.out.println(l.getAutor());
             EditText editorial = new EditText(llv.getContext());
-            editorial.setText(l.getEditorial().toString());
+            editorial.setText(l.getEditorial());
             System.out.println(l.getEditorial());
             EditText categoria = new EditText(llv.getContext());
-            categoria.setText(l.getCategoria().toString());
+            categoria.setText(l.getCategoria());
             System.out.println(l.getCategoria());
             System.out.println(l.getRuta());
             System.out.println();
@@ -86,6 +87,7 @@ public class Principal extends AppCompatActivity {
             llv.addView(categoria);
             llh.addView(imagen);
             llh.addView(llv);
+            ll.addView(llh);
 
         }
     }
