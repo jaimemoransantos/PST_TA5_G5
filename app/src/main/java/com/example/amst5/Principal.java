@@ -3,12 +3,16 @@ package com.example.amst5;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ScrollView;
+import android.widget.TextView;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 public class Principal extends AppCompatActivity {
@@ -47,10 +51,10 @@ public class Principal extends AppCompatActivity {
         String book10= "Fahrenheit 451|Ray Bradbury|Debolsillo|Ficción|La temperatura a la que el papel se enciende y arde. Guy Montag es un bombero y el trabajo de un bombero es quemar libros, que están prohibidos porque son causa de discordia y sufrimiento.|fahrenheit.jpg";
         String book11= "1984|George Orwell|Penguin Readers|Ficción|Es una novela de distopía cuya trama ocurre en Oceanía, un país dominado por un gobierno totalitario que mantiene en constante vigilancia a sus ciudadanos e, incluso, insiste en espiar sus pensamientos para mantener el orden.|foto1984.jpg";
         String book12= "LOS JUEGOS DEL HAMBRE|SUZANNE COLLINS|RBA Libros|Ficción|Es la hora. Ya no hay vuelta atrás. Los juegos van a comenzar. Los tributos deben salir a la Arena y luchar por sobrevivir.Ganar significa Fama y riqueza, perder significa la muerte segura...|hambre.jpg ";
-        String book13= "El principito|Antoine de Saint-Exupery|Salamandra|Cuento|En ella, se narra la historia de un piloto que intenta reparar su avión estropeado en medio del desierto del Sahara y quien justo allí se topa con un pequeño príncipe originario de otro planeta, iniciándose así una relación de amistad entre ambos, llegándose a detallar entre sí las anécdotas, particularidades, visiones y percepciones de diversos temas que rodean sus vidas.|principito.jpg";
-        String book14= "Alicia en el Pais de las Maravillas|Lewis Carroll|Arrobabooks|Cuento|A lo largo de esta odisea, Alicia sufrirá diversas transformaciones e interactuará con un sinfín de personajes donde experimentará vivencias particulares con cada uno de ellos y que definen en conjunto el verdadero significado de las andanzas que emprende Alicia.|alicia.jpg";
-        String book15= "Cuentos de la selva|Horacio Quiroga|Anaya|Cuento|El argumento de estos relatos, con alto sentido ecológico e independientes unos de otros, caracteriza diversas vivencias anecdóticas enfatizadas en las relaciones tanto de unión como rivalidad que llegan a desarrollar los animales y los humanos entre sí y cómo el desenlace de estas transmite de forma reflexiva el respeto, la estima y la consideración que se debe tener por la naturaleza.|cuentosdelaselva.jpg";
-        String book16= "Las aventuras de pinocho|Carlo Collodi|Siruela|Cuento|Es un cuento que narra las vivencias que experimenta Pinocho, una marioneta de madera creada por Geppetto, un viejo carpintero, a lo largo de treinta y seis capítulos donde se describe el agitado viaje que le llevará a lugares y situaciones impensables junto a una diversidad de personajes que le acompañan durante su odisea, en la que además de querer volver a casa está el persistente deseo de poder convertirse en un niño real.|aventuradepinocho.jpg";
+        String book13= "El principito|Antoine de Saint-Exupery|Salamandra|Cuento|En ella, se narra la historia de un piloto que intenta reparar su avión estropeado en medio del desierto del Sahara y quien justo allí se topa con un pequeño príncipe originario de otro planeta, iniciándose así una relación de amistad entre ambos, llegándose a detallar entre sí las anécdotas, particularidades, visiones y percepciones de diversos temas que rodean sus vidas.|principito";
+        String book14= "Alicia en el Pais de las Maravillas|Lewis Carroll|Arrobabooks|Cuento|A lo largo de esta odisea, Alicia sufrirá diversas transformaciones e interactuará con un sinfín de personajes donde experimentará vivencias particulares con cada uno de ellos y que definen en conjunto el verdadero significado de las andanzas que emprende Alicia.|alicia";
+        String book15= "Cuentos de la selva|Horacio Quiroga|Anaya|Cuento|El argumento de estos relatos, con alto sentido ecológico e independientes unos de otros, caracteriza diversas vivencias anecdóticas enfatizadas en las relaciones tanto de unión como rivalidad que llegan a desarrollar los animales y los humanos entre sí y cómo el desenlace de estas transmite de forma reflexiva el respeto, la estima y la consideración que se debe tener por la naturaleza.|cuentosdelaselva";
+        String book16= "Las aventuras de pinocho|Carlo Collodi|Siruela|Cuento|Es un cuento que narra las vivencias que experimenta Pinocho, una marioneta de madera creada por Geppetto, un viejo carpintero, a lo largo de treinta y seis capítulos donde se describe el agitado viaje que le llevará a lugares y situaciones impensables junto a una diversidad de personajes que le acompañan durante su odisea, en la que además de querer volver a casa está el persistente deseo de poder convertirse en un niño real.|aventuradepinocho";
         libros = new String[]{book1, book2, book3, book4, book5, book6, book7, book8, book9, book10, book11, book12, book13, book14, book15, book16};
         for(String s : libros){
             String[] cortado = s.split("\\|");
@@ -65,21 +69,22 @@ public class Principal extends AppCompatActivity {
         for (Libro l : db) {
             LinearLayout llh = new LinearLayout(ll.getContext());
             llh.setOrientation(LinearLayout.HORIZONTAL);
-
-            EditText imagen = new EditText(llh.getContext());
-            imagen.setText(l.getRuta());
+            ImageView fotito = new ImageView(llh.getContext());
+            String nombre = "@drawable/" + l.getRuta();
+            int recurso = getResources().getIdentifier(nombre,null, getPackageName());
+            fotito.setImageResource(recurso);
             LinearLayout llv = new LinearLayout(llh.getContext());
             llv.setOrientation(LinearLayout.VERTICAL);
-            EditText titulo = new EditText(llv.getContext());
+            TextView titulo = new TextView(llv.getContext());
             titulo.setText(l.getTitulo());
             System.out.println(l.getTitulo());
-            EditText autor = new EditText(llv.getContext());
+            TextView autor = new TextView(llv.getContext());
             autor.setText(l.getAutor());
             System.out.println(l.getAutor());
-            EditText editorial = new EditText(llv.getContext());
+            TextView editorial = new TextView(llv.getContext());
             editorial.setText(l.getEditorial());
             System.out.println(l.getEditorial());
-            EditText categoria = new EditText(llv.getContext());
+            TextView categoria = new TextView(llv.getContext());
             categoria.setText(l.getCategoria());
             System.out.println(l.getCategoria());
             System.out.println(l.getRuta());
@@ -88,7 +93,7 @@ public class Principal extends AppCompatActivity {
             llv.addView(autor);
             llv.addView(editorial);
             llv.addView(categoria);
-            llh.addView(imagen);
+            llh.addView(fotito);
             llh.addView(llv);
             ll.addView(llh);
 
@@ -96,8 +101,14 @@ public class Principal extends AppCompatActivity {
     }
         //botones
         public void categoria(View view){
-            Intent i = new Intent(this, CategoriaC.class);
-            startActivity(i);
+
+//modificado Sheyla
+            ArrayList<Libro> libros_base= db;
+            Intent intent= new Intent(this, CategoriaC.class);
+            Bundle args= new Bundle();
+            args.putSerializable("ARRAYLIST",(Serializable)libros_base);
+            intent.putExtra("BUNDLE",args);
+            startActivity(intent);
             finish();
     }
     public void perfil(View view){
