@@ -31,6 +31,7 @@ public class MainActivity extends AppCompatActivity {
     }
     public void ingresar(View view){
         Intent prin = new Intent(MainActivity.this, Principal.class );
+        Intent sec= new Intent(this,Perfil.class);
         AdminSQLiteOpenHelper admin = new AdminSQLiteOpenHelper(this,
                 "grupo5", null, 1);
         SQLiteDatabase bd = admin.getReadableDatabase();
@@ -43,7 +44,7 @@ public class MainActivity extends AppCompatActivity {
             String password= fila.getString(0);
             if (password.equals(passw)){
                 prin.putExtra("usuario",user1);
-                prin.putExtra("password",passw);
+                sec.putExtra("usuario", user1);
                 startActivity(prin);
             }else
                 Toast.makeText(this, "Contraseña incorrecta",

@@ -20,6 +20,7 @@ public class Perfil extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_perfil);
         Bundle bundle=getIntent().getExtras();
+        Bundle bundle2= getIntent().getExtras();
 
         tUsuario=(TextView)findViewById(R.id.textUsuario);
         tNombre=(TextView)findViewById(R.id.textNombre);
