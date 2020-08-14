@@ -51,7 +51,7 @@ public class Registro extends AppCompatActivity {
 
 
     }
-
+    //Funciones de base de datos
     public void ingresar(View v) {
         AdminSQLiteOpenHelper admin = new AdminSQLiteOpenHelper(this,
                 "administracion", null, 1);
