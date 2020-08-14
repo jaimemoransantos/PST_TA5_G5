@@ -44,6 +44,7 @@
         android:layout_marginBottom="40dp"
         android:background="#00FFFFFF"
         android:contentDescription="@null"
+        android:onClick="principal"
         android:scaleType="fitCenter"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -56,24 +57,26 @@
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:background="#00FFFFFF"
+        android:contentDescription="@null"
+        android:onClick="perfilV"
         android:scaleType="fitCenter"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.508"
         app:layout_constraintStart_toEndOf="@+id/principal"
         app:layout_constraintTop_toTopOf="@+id/principal"
-        app:srcCompat="@drawable/perfil"
-        android:contentDescription="@null" />
+        app:srcCompat="@drawable/perfil" />
 
     <ImageButton
         android:id="@+id/categorias"
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:background="#00FFFFFF"
+        android:contentDescription="@null"
+        android:onClick="categoria"
         android:scaleType="fitCenter"
         app:layout_constraintEnd_toStartOf="@+id/principal"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/principal"
-        app:srcCompat="@drawable/menucat"
-        android:contentDescription="@null" />
+        app:srcCompat="@drawable/menucat" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
