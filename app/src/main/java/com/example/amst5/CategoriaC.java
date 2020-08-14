@@ -1,9 +1,11 @@
 package com.example.amst5;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 
@@ -35,4 +37,22 @@ public class CategoriaC extends AppCompatActivity {
         startActivity(i);
         finish();
     }
+    public void click_libro(View view) {
+        mostrarDialogo();
+    }
+    public void mostrarDialogo(){
+        AlertDialog.Builder builder= new AlertDialog.Builder(CategoriaC.this);
+        builder.setTitle("Libros");
+        builder.setMessage("Prueba")
+                .setNegativeButton(android.R.string.cancel, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int i) {
+                        dialog.dismiss();
+                    }
+                })
+                .setCancelable(false)
+                .show();
+
+    }
+
 }
