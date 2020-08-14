@@ -97,21 +97,18 @@ public class Principal extends AppCompatActivity {
         //botones
         public void categoria(View view){
             Intent i = new Intent(this, CategoriaC.class);
-            i.putExtra("base", db);
             startActivity(i);
             finish();
-        }
+    }
     public void perfil(View view){
         Intent i = new Intent(this, Perfil.class);
         i.putExtra("usuario",bundle.getString("usuario"));
         i.putExtra("passsword",bundle.getString("password"));
-
         startActivity(i);
         finish();
     }
     public void principal(View view){
         Intent i = new Intent(this, Principal.class);
-        //i.putExtra("direccion", et1.getText().toString());
         startActivity(i);
         finish();
     }

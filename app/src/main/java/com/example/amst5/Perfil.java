@@ -2,6 +2,7 @@ package com.example.amst5;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
@@ -24,6 +25,7 @@ public class Perfil extends AppCompatActivity {
         tCorreo=(TextView)findViewById(R.id.textCorreo);
         tCelular=(TextView)findViewById(R.id.textCelular);
         tFavorito=(TextView)findViewById(R.id.textFavorito);
+        assert bundle != null;
         user=bundle.getString("usuario");
         tUsuario.setText(user);
         AdminSQLiteOpenHelper admin = new AdminSQLiteOpenHelper(this,
@@ -43,6 +45,27 @@ public class Perfil extends AppCompatActivity {
         }
         bd.close();
 
+
+
+    }
+    public void categoria(View view){
+        Intent i = new Intent(this, CategoriaC.class);
+        startActivity(i);
+        finish();
+    }
+    public void perfil(View view){
+        Intent i = new Intent(this, Perfil.class);
+
+        startActivity(i);
+        finish();
+    }
+    public void principal(View view){
+        Intent i = new Intent(this, Principal.class);
+        startActivity(i);
+        finish();
+    }
+    public  void  salir(View view){
+        finish();
     }
 
 }
