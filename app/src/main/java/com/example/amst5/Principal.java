@@ -26,7 +26,6 @@ public class Principal extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_principal);
         bundle=getIntent().getExtras();
-
         info = findViewById(R.id.scroll);
         db = createDatabase();
         et = findViewById(R.id.busqueda);
