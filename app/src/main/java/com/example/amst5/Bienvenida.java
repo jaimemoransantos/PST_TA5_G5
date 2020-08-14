@@ -25,5 +25,5 @@ public class Bienvenida extends AppCompatActivity {
                 finish();
             }
         }, 5000);
-    }
+    } // Pilas mi plox
 }
