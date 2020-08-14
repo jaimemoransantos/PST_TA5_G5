@@ -21,7 +21,6 @@ public class Registro extends AppCompatActivity {
     EditText userPass;
     EditText userMail;
     EditText userGenero;
-    TextView prueba;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -76,7 +75,7 @@ public class Registro extends AppCompatActivity {
             userMail.setText(fila.getString(3));
             userGenero.setText(fila.getString(4));
         } else
-            Toast.makeText(this, "No existe un artículo con dicho código",
+            Toast.makeText(this, "No existe un artículo con dicho Nombre",
                     Toast.LENGTH_SHORT).show();
         bd.close();
     }
