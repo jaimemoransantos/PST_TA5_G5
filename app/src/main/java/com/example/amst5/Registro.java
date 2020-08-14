@@ -27,6 +27,8 @@ import java.io.OutputStreamWriter;
 import java.nio.Buffer;
 import java.text.DateFormat;
 
+import com.example.amst5.R;
+
 public class Registro extends AppCompatActivity {
     private static final String name= "info.txt";
     EditText userName;
@@ -239,4 +241,5 @@ public class Registro extends AppCompatActivity {
 
     //ya
 
-}
+
+    }
