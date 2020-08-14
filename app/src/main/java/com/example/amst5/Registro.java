@@ -3,6 +3,8 @@ package com.example.amst5;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.os.Environment;
 import android.telephony.SmsManager;
@@ -46,24 +48,87 @@ public class Registro extends AppCompatActivity {
         userPass= (EditText) findViewById(R.id.contra);
         userMail= (EditText) findViewById(R.id.correo);
         userGenero= (EditText) findViewById(R.id.genero);
-        prueba= (TextView) findViewById(R.id.prueba);
+
 
     }
 
-    public void Registar(View V){
-        String nombre= userName.getText().toString();
-        String apellido= userApellido.getText().toString();
-        String user= userUser.getText().toString();
+    public void ingresar(View v) {
+        AdminSQLiteOpenHelper admin = new AdminSQLiteOpenHelper(this,
+                "administracion", null, 1);
+        SQLiteDatabase bd = admin.getWritableDatabase();
+        String nom= userName.getText().toString();
+        String apel= userApellido.getText().toString();
+        String usuario= userUser.getText().toString();
         String pass= userPass.getText().toString();
         String mail= userMail.getText().toString();
-        String genero= userGenero.getText().toString();
-
-        FileOutputStream fos= null;
-        String linea= nombre+","+apellido+","+user+","+pass+","+mail+","+genero;
-
+        String gene= userGenero.getText().toString();
+        bd.execSQL("insert into datos (nombre,apellido,user,contrase,email,genero) values ("
+                +"'"+nom+"','"+apel+"','"+usuario+"','"+pass+"','"+mail+"','"+gene+"'"+")");
+        bd.close();
+        userName.setText("");
+        userApellido.setText("");
+        userUser.setText("");
+        userPass.setText("");
+        userMail.setText("");
+        userGenero.setText("");
+        Toast.makeText(this, "Se cargaron los datos del artículo",
+                Toast.LENGTH_SHORT).show();
     }
 
-    private void writeToFile(String data,Context context) {
+    public void consultaporNombre(View v) {
+        AdminSQLiteOpenHelper admin = new AdminSQLiteOpenHelper(this,
+                "administracion", null, 1);
+        SQLiteDatabase bd = admin.getReadableDatabase();
+        String namee = userName.getText().toString();
+        namee="'"+namee+"'";
+        Cursor fila = bd.rawQuery(
+                "select apellido,user,contrase,email,genero from datos where nombre=" + namee, null);
+        if (fila.moveToFirst()) {
+            userApellido.setText(fila.getString(0));
+            userUser.setText(fila.getString(1));
+            userPass.setText(fila.getString(2));
+            userMail.setText(fila.getString(3));
+            userGenero.setText(fila.getString(4));
+        } else
+            Toast.makeText(this, "No existe un artículo con dicho código",
+                    Toast.LENGTH_SHORT).show();
+        bd.close();
+    }
+
+
+    public void eliminar(View v) {
+        AdminSQLiteOpenHelper admin = new AdminSQLiteOpenHelper(this,
+                "administracion", null, 1);
+        SQLiteDatabase bd = admin.getWritableDatabase();
+        String nam= userName.getText().toString();
+        nam="'"+nam+"'";
+        bd.execSQL("delete from datos where nombre = "+nam);
+        bd.close();
+        userName.setText("");
+        userApellido.setText("");
+        userUser.setText("");
+        userPass.setText("");
+        userMail.setText("");
+        userGenero.setText("");
+        Toast.makeText(this, "Se borró el artículo con dicho código",
+                Toast.LENGTH_SHORT).show();
+    }
+
+    /*public void modificacion(View v) {
+        AdminSQLiteOpenHelper admin = new AdminSQLiteOpenHelper(this,
+                "administracion", null, 1);
+        SQLiteDatabase bd = admin.getWritableDatabase();
+        String cod = et1.getText().toString();
+        String descri = et2.getText().toString();
+        String pre = et3.getText().toString();
+        bd.execSQL("update articulos set codigo="+cod+",descripcion='"+descri+"',precio="+pre+" where codigo="+cod);
+        bd.close();
+        Toast.makeText(this, "se modificaron los datos", Toast.LENGTH_SHORT)
+                .show();
+    }*/
+
+
+    /*private void writeToFile(String data,Context context) {
         try {
             OutputStreamWriter outputStreamWriter = new OutputStreamWriter(context.openFileOutput("datos.txt", Context.MODE_PRIVATE));
             outputStreamWriter.write(data);
@@ -102,7 +167,7 @@ public class Registro extends AppCompatActivity {
         }
 
         return ret;
-    }
+    }*/
 
         /*try {
             File root = new File(Environment.getExternalStorageDirectory(), "My Folder");
