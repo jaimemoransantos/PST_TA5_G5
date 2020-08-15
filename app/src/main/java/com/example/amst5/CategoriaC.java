@@ -5,6 +5,9 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 
 
 import androidx.appcompat.app.AlertDialog;
@@ -21,7 +24,7 @@ public class CategoriaC extends AppCompatActivity {
 
    String[] libros_iterar;
     ArrayList<Libro> basedatos = new ArrayList<>();
-    ArrayList<String> lib = new ArrayList<>();
+    ArrayList<Libro> lib_filtrada = new ArrayList<>();
 
 
 
@@ -51,11 +54,7 @@ public class CategoriaC extends AppCompatActivity {
         }
         for (Libro l:basedatos){
             if (l.getCategoria().equals(categoria)){
-                lib.add(l.getAutor());
-                lib.add(l.getEditorial());
-                lib.add(l.getRuta());
-                lib.add(l.getSinopsis());
-                lib.add(l.getTitulo());
+                lib_filtrada.add(new Libro(l.getTitulo(),l.getCategoria(),l.getAutor(),l.getEditorial(),l.getSinopsis(),l.getRuta()));
 
             }
         }
@@ -111,7 +110,42 @@ public class CategoriaC extends AppCompatActivity {
     public void mostrarDialogo(){
         AlertDialog.Builder builder= new AlertDialog.Builder(CategoriaC.this);
         builder.setTitle("Libros");
-        builder.setMessage(libros)
+        LinearLayout mio=new LinearLayout(getApplicationContext());
+        mio.removeAllViews();
+        for (Libro l: lib_filtrada){
+            LinearLayout llh = new LinearLayout(mio.getContext());
+            llh.setOrientation(LinearLayout.HORIZONTAL);
+            ImageView fotito = new ImageView(llh.getContext());
+            String nombre = "@drawable/" + l.getRuta();
+            int recurso = getResources().getIdentifier(nombre,null, getPackageName());
+            fotito.setImageResource(recurso);
+            LinearLayout llv = new LinearLayout(llh.getContext());
+            llv.setOrientation(LinearLayout.VERTICAL);
+            TextView titulo = new TextView(llv.getContext());
+            titulo.setText(l.getTitulo());
+            System.out.println(l.getTitulo());
+            TextView autor = new TextView(llv.getContext());
+            autor.setText(l.getAutor());
+            System.out.println(l.getAutor());
+            TextView editorial = new TextView(llv.getContext());
+            editorial.setText(l.getEditorial());
+            System.out.println(l.getEditorial());
+            TextView categoria = new TextView(llv.getContext());
+            categoria.setText(l.getCategoria());
+            System.out.println(l.getCategoria());
+            System.out.println(l.getRuta());
+            System.out.println();
+            llv.addView(titulo);
+            llv.addView(autor);
+            llv.addView(editorial);
+            llv.addView(categoria);
+            llh.addView(fotito);
+            llh.addView(llv);
+            mio.addView(llh);
+        }
+
+        builder.setView(mio.getRootView())
+        //builder.setMessage(libros)
                 .setNegativeButton(android.R.string.cancel, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int i) {
