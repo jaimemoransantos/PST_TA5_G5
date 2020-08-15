@@ -1,5 +1,6 @@
 package com.example.amst5;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -11,6 +12,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ScrollView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -111,20 +113,15 @@ public class Principal extends AppCompatActivity {
     }
     public void perfil(View view){
         Intent i = new Intent(this, Perfil.class);
+        //bundle=getIntent().getExtras();
         i.putExtra("usuario",bundle.getString("usuario"));
-        i.putExtra("passsword",bundle.getString("password"));
         startActivity(i);
-        finish();
+        //finish();
+
     }
     public void principal(View view){
-        Intent i = new Intent(this, Principal.class);
-        startActivity(i);
-        finish();
+        Toast toast1 = Toast.makeText(getApplicationContext(), "Ya se encuentra dentro del menu principal", Toast.LENGTH_SHORT);
+        toast1.show();
     }
-
-
-
-
-
 
 }
