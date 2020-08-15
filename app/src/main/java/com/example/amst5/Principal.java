@@ -25,6 +25,7 @@ public class Principal extends AppCompatActivity {
     String[] libros;
     Bundle bundle;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -171,8 +172,8 @@ public class Principal extends AppCompatActivity {
             //Bundle args= new Bundle();
             //args.putSerializable("ARRAYLIST",(Serializable)libros_base);
             intent.putExtra("arrayst",libros);
+            intent.putExtra("usuario",bundle.getString("usuario"));
             startActivity(intent);
-            finish();
     }
     public void perfil(View view){
         Intent i = new Intent(this, Perfil.class);

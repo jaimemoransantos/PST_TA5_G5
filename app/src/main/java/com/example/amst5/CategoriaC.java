@@ -8,6 +8,7 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 
 import androidx.appcompat.app.AlertDialog;
@@ -21,6 +22,8 @@ import java.util.ArrayList;
 public class CategoriaC extends AppCompatActivity {
     ImageButton bterror,bromance,bficcion,bcuento;
     String libros="sheyla";
+    Bundle bundle;
+    String user;
 
    String[] libros_iterar;
     ArrayList<Libro> basedatos = new ArrayList<>();
@@ -35,6 +38,7 @@ public class CategoriaC extends AppCompatActivity {
         setContentView(R.layout.activity_categoria);
         Bundle bundle=getIntent().getExtras();
         libros_iterar=bundle.getStringArray("arrayst");
+        user=bundle.getString("usuario");
 
 
     }
@@ -62,23 +66,21 @@ public class CategoriaC extends AppCompatActivity {
 
     //botones
     public void categoria(View view) {
-        Intent ic= new Intent(this,CategoriaC.class);
-        ic.putExtra("arrayst",libros_iterar);
-        startActivity(ic);
-        finish();
+        Toast toast1 = Toast.makeText(getApplicationContext(), "Ya se encuentra dentro de Categoria", Toast.LENGTH_SHORT);
+        toast1.show();
     }
 
     public void perfil(View view) {
-        Intent i = new Intent(this, Perfil.class);
-        //i.putExtra("direccion", et1.getText().toString());
-        startActivity(i);
+        Intent i = new Intent(this, Principal.class);
+        i.putExtra("user",user);
+        setResult(RESULT_OK,i);
         finish();
     }
 
     public void principal(View view) {
         Intent i = new Intent(this, Principal.class);
-        //i.putExtra("direccion", et1.getText().toString());
-        startActivity(i);
+        i.putExtra("user",user);
+        setResult(RESULT_OK,i);
         finish();
     }
     public void click_libro(View view) {
