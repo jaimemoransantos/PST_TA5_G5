@@ -71,7 +71,7 @@ public class CategoriaC extends AppCompatActivity {
     }
 
     public void perfil(View view) {
-        Intent i = new Intent(this, Principal.class);
+        Intent i = new Intent(this, Perfil.class);
         i.putExtra("user",user);
         setResult(RESULT_OK,i);
         finish();
