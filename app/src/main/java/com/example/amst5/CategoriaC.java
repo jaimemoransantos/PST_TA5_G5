@@ -17,8 +17,8 @@ import java.util.ArrayList;
 
 public class CategoriaC extends AppCompatActivity {
     ImageButton bterror,bromance,bficcion,bcuento;
-    String libros=null;
-    ArrayList<Libro> libros_iterar;
+    String libros="sheyla";
+   // ArrayList<Libro> libros_iterar;
 
 
 
@@ -36,13 +36,13 @@ public class CategoriaC extends AppCompatActivity {
     }
 
     public void mostrar(String categoria) {
-        for (Libro l : libros_iterar) {
+        /*for (Libro l : libros_iterar) {
             if (l.getCategoria().equals(categoria)) {
                 libros=l.getTitulo();
 
             }
 
-        }
+        }*/
     }
 
 
@@ -53,10 +53,10 @@ public class CategoriaC extends AppCompatActivity {
         //startActivity(i);
         //finish();
         //prueba Sheyla
-        Intent intent= getIntent();
-        Bundle args=intent.getBundleExtra("Bundle");
-        libros_iterar=(ArrayList<Libro>) args.getSerializable("ARRAYLIST");
-        Intent ic= new Intent();
+        //Intent intent= getIntent();
+        //Bundle args=intent.getBundleExtra("BUNDLE");
+        //libros_iterar=(ArrayList<Libro>) args.getSerializable("ARRAYLIST");
+        Intent ic= new Intent(this,CategoriaC.class);
         startActivity(ic);
         finish();
     }

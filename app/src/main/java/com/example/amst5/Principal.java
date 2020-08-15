@@ -101,11 +101,9 @@ public class Principal extends AppCompatActivity {
         public void categoria(View view){
 
 //modificado Sheyla
-            ArrayList<Libro> libros_base= db;
             Intent intent= new Intent(this, CategoriaC.class);
-            Bundle args= new Bundle();
-            args.putSerializable("ARRAYLIST",(Serializable)libros_base);
-            intent.putExtra("BUNDLE",args);
+
+            //intent.putExtra("BUNDLE",args);
             startActivity(intent);
             finish();
     }
