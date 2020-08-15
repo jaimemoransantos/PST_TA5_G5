@@ -8,4 +8,6 @@
     <string name="b_squeda_de_libro">Búsqueda de Libro</string>
     <string name="name">Name</string>
     <string name="todo">TODO</string>
+    <string name="libros">Libros</string>
+    <string name="buscar">Buscar</string>
 </resources>
