@@ -5,170 +5,211 @@
     android:id="@+id/Categoria"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#009688"
+    android:background="#FFFFFF"
     tools:context=".CategoriaC">
 
-    <TextView
-        android:id="@+id/textViewCat"
-        android:layout_width="407dp"
-        android:layout_height="74dp"
-        android:layout_marginTop="60dp"
-        android:text="Vea los libros acorde de la categoria que más le guste"
-        android:textAlignment="center"
-        android:textSize="18sp"
-        android:textStyle="bold"
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#2196F3"
+        android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent">
 
-    <ImageButton
-        android:id="@+id/imageButtonCuento"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="80dp"
-        android:layout_marginTop="140dp"
-        android:layout_marginEnd="44dp"
-        android:background="#FFFCFC"
-        android:onClick="click_libro"
-        app:layout_constraintEnd_toStartOf="@+id/imageButtonTerror"
+        <TextView
+            android:id="@+id/textViewCat"
+            android:layout_width="match_parent"
+            android:layout_height="96dp"
+            android:fontFamily="@font/diplomata"
+            android:paddingTop="15sp"
+            android:text="Vea los libros acorde a la categoria de su elección"
+            android:textAlignment="center"
+            android:textColor="#FFFFFF"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout5"
+        android:layout_width="0dp"
+        android:layout_height="463dp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewCat"
-        app:srcCompat="@mipmap/ic_cuentos_foreground"
-        tools:srcCompat="@mipmap/ic_cuentos_foreground" />
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout">
 
-    <ImageButton
-        android:id="@+id/imageButtonTerror"
-        android:layout_width="108dp"
-        android:layout_height="112dp"
-        android:layout_marginStart="44dp"
-        android:layout_marginTop="140dp"
-        android:layout_marginEnd="80dp"
-        android:background="#05000000"
-        android:onClick="click_libro"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/imageButtonCuento"
-        app:layout_constraintTop_toBottomOf="@+id/textViewCat"
-        app:srcCompat="@mipmap/ic_terror_foreground" />
+        <ImageButton
+            android:id="@+id/imageButtonCuento"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="84dp"
+            android:layout_marginTop="44dp"
+            android:background="#FFFCFC"
+            android:onClick="click_libro"
+            app:layout_constraintStart_toEndOf="@+id/imageButtonRomance"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@mipmap/ic_cuentos_foreground"
+            tools:srcCompat="@mipmap/ic_cuentos_foreground" />
 
-    <ImageButton
-        android:id="@+id/imageButtonFiccion"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="80dp"
-        android:layout_marginEnd="41dp"
-        android:background="#0A0F2B"
-        android:onClick="click_libro"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/imageButtonRomance"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageButtonCuento"
-        app:layout_constraintVertical_bias="0.407"
-        app:srcCompat="@mipmap/ic_ficcion_foreground" />
+        <ImageButton
+            android:id="@+id/imageButtonTerror"
+            android:layout_width="108dp"
+            android:layout_height="112dp"
+            android:layout_marginTop="76dp"
+            android:layout_marginEnd="72dp"
+            android:background="#05000000"
+            android:onClick="click_libro"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageButtonCuento"
+            app:layout_constraintVertical_bias="0.056"
+            app:srcCompat="@mipmap/ic_terror_foreground" />
 
-    <ImageButton
-        android:id="@+id/imageButtonRomance"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="41dp"
-        android:layout_marginTop="12dp"
-        android:layout_marginEnd="80dp"
-        android:background="#201C0F"
-        android:onClick="click_libro"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.913"
-        app:layout_constraintStart_toEndOf="@+id/imageButtonFiccion"
-        app:layout_constraintTop_toBottomOf="@+id/imageButtonTerror"
-        app:layout_constraintVertical_bias="0.392"
-        app:srcCompat="@mipmap/ic_romance_foreground" />
+        <ImageButton
+            android:id="@+id/imageButtonFiccion"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="36dp"
+            android:layout_marginBottom="116dp"
+            android:background="#0A0F2B"
+            android:onClick="click_libro"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/imageButtonTerror"
+            app:layout_constraintHorizontal_bias="0.091"
+            app:layout_constraintStart_toStartOf="parent"
+            app:srcCompat="@mipmap/ic_ficcion_foreground" />
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="65dp"
-        android:layout_height="27dp"
-        android:text="Cuento"
-        android:textAlignment="center"
-        app:layout_constraintBottom_toTopOf="@+id/imageButtonFiccion"
-        app:layout_constraintEnd_toEndOf="@+id/imageButtonCuento"
-        app:layout_constraintHorizontal_bias="0.534"
-        app:layout_constraintStart_toStartOf="@+id/imageButtonCuento"
-        app:layout_constraintTop_toBottomOf="@+id/imageButtonCuento"
-        app:layout_constraintVertical_bias="0.0" />
+        <ImageButton
+            android:id="@+id/imageButtonRomance"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="36dp"
+            android:layout_marginTop="44dp"
+            android:background="#201C0F"
+            android:onClick="click_libro"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@mipmap/ic_romance_foreground" />
 
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="69dp"
-        android:layout_height="26dp"
-        android:text="Terror"
-        android:textAlignment="center"
-        app:layout_constraintBottom_toTopOf="@+id/imageButtonRomance"
-        app:layout_constraintEnd_toEndOf="@+id/imageButtonTerror"
-        app:layout_constraintHorizontal_bias="0.589"
-        app:layout_constraintStart_toStartOf="@+id/imageButtonTerror"
-        app:layout_constraintTop_toBottomOf="@+id/imageButtonTerror"
-        app:layout_constraintVertical_bias="0.0" />
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="84dp"
+            android:fontFamily="@font/diplomata"
+            android:text="Cuento"
+            android:textAlignment="center"
+            android:textSize="14sp"
+            app:layout_constraintBottom_toTopOf="@+id/imageButtonTerror"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageButtonCuento"
+            app:layout_constraintVertical_bias="0.0" />
 
-    <TextView
-        android:id="@+id/textView3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Ficcion"
-        android:textAlignment="center"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/imageButtonFiccion"
-        app:layout_constraintHorizontal_bias="0.333"
-        app:layout_constraintStart_toStartOf="@+id/imageButtonFiccion"
-        app:layout_constraintTop_toBottomOf="@+id/imageButtonFiccion"
-        app:layout_constraintVertical_bias="0.0" />
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:layout_marginEnd="72dp"
+            android:fontFamily="@font/diplomata"
+            android:text="Terror"
+            android:textAlignment="center"
+            android:textSize="18sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageButtonTerror"
+            app:layout_constraintVertical_bias="0.0" />
 
-    <TextView
-        android:id="@+id/textView4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Romance"
-        android:textAlignment="center"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/imageButtonRomance"
-        app:layout_constraintHorizontal_bias="0.51"
-        app:layout_constraintStart_toStartOf="@+id/imageButtonRomance"
-        app:layout_constraintTop_toBottomOf="@+id/imageButtonRomance"
-        app:layout_constraintVertical_bias="0.0" />
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="44dp"
+            android:fontFamily="@font/diplomata"
+            android:text="Ficción"
+            android:textAlignment="center"
+            android:textSize="14sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageButtonFiccion"
+            app:layout_constraintVertical_bias="0.0" />
 
-    <Button
-        android:id="@+id/button4"
-        android:layout_width="88dp"
-        android:layout_height="57dp"
-        android:layout_marginEnd="44dp"
-        android:background="#00000000"
-        android:foreground="@drawable/menucat"
-        android:onClick="categoria"
-        app:layout_constraintEnd_toStartOf="@+id/button7"
-        app:layout_constraintHorizontal_bias="0.571"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/button7" />
+        <TextView
+            android:id="@+id/textView4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="4dp"
+            android:fontFamily="@font/diplomata"
+            android:text="Romance"
+            android:textAlignment="center"
+            android:textSize="14sp"
+            app:layout_constraintBottom_toTopOf="@+id/imageButtonFiccion"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageButtonRomance"
+            app:layout_constraintVertical_bias="0.0" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <Button
-        android:id="@+id/button7"
-        android:layout_width="90dp"
-        android:layout_height="61dp"
-        android:layout_marginBottom="4dp"
-        android:background="#00000000"
-        android:foreground="@drawable/home"
-        android:onClick="principal"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="0dp"
+        android:layout_height="118dp"
+        android:background="#2196F3"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent">
 
-    <Button
-        android:id="@+id/button8"
-        android:layout_width="91dp"
-        android:layout_height="56dp"
-        android:background="#00FFFFFF"
-        android:foreground="@drawable/perfil"
-        android:onClick="perfil"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/button7"
-        app:layout_constraintTop_toTopOf="@+id/button7" />
+        <ImageButton
+            android:id="@+id/a2"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_marginTop="16dp"
+            android:background="#00FFFFFF"
+            android:contentDescription="@null"
+            android:onClick="principal"
+            android:scaleType="fitCenter"
+            android:tint="#FFFFFF"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.498"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/home" />
+
+        <ImageButton
+            android:id="@+id/a1"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:background="#00FFFFFF"
+            android:contentDescription="@null"
+            android:onClick="categoria"
+            android:scaleType="fitCenter"
+            android:tint="#FFFFFF"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/a2"
+            app:layout_constraintHorizontal_bias="0.469"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/menucat" />
+
+        <ImageButton
+            android:id="@+id/a3"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginEnd="44dp"
+            android:background="#00FFFFFF"
+            android:contentDescription="@null"
+            android:onClick="perfil"
+            android:scaleType="fitCenter"
+            android:tint="#FFFFFF"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.822"
+            app:layout_constraintStart_toEndOf="@+id/a2"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/perfil" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
