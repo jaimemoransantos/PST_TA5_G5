@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#009688"
+    android:background="#FFFFFF"
     tools:context=".Bienvenida">
 
     <TextView
@@ -30,15 +30,16 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:srcCompat="@drawable/intagram" />
+        app:srcCompat="@drawable/intagram"
+        android:contentDescription="TODO" />
 
     <TextView
         android:id="@+id/nombre"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="276dp"
-        android:text="The Book Nest"
-        android:textColor="#FFFFFF"
+        android:text="@string/the_book_nest"
+        android:textColor="#2196F3"
         android:textSize="24sp"
         android:textStyle="bold|italic"
         app:layout_constraintEnd_toEndOf="parent"
@@ -51,7 +52,7 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="16dp"
         android:fontFamily="@font/diplomata"
-        android:text="Grupo# 5"
+        android:text="Grupo 5"
         android:textAlignment="center"
         android:textColor="#002035"
         android:textSize="24sp"
