@@ -55,8 +55,9 @@ public class Perfil extends AppCompatActivity {
 
     }
     public void categoria(View view){
-        Intent i = new Intent(this, CategoriaC.class);
-        startActivity(i);
+        Intent i = new Intent(this, Principal.class);
+        i.putExtra("user",user);
+        setResult(RESULT_OK,i);
         finish();
     }
     public void perfil(View view){
