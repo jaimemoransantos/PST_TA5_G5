@@ -29,11 +29,6 @@ public class CategoriaC extends AppCompatActivity {
 
 
 
-
-
-
-
-
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -45,7 +40,7 @@ public class CategoriaC extends AppCompatActivity {
     }
 
     public void mostrar(String categoria) {
-
+        lib_filtrada.clear();
         for(String s : libros_iterar){
             String[] cortado = s.split("\\|");
             basedatos.add(new Libro(cortado[0], cortado[3], cortado[1], cortado[2], cortado[4], cortado[5]));
@@ -112,29 +107,36 @@ public class CategoriaC extends AppCompatActivity {
         builder.setTitle("Libros");
         LinearLayout mio=new LinearLayout(getApplicationContext());
         mio.removeAllViews();
+        mio.setOrientation(LinearLayout.VERTICAL);
         for (Libro l: lib_filtrada){
+
             LinearLayout llh = new LinearLayout(mio.getContext());
             llh.setOrientation(LinearLayout.HORIZONTAL);
             ImageView fotito = new ImageView(llh.getContext());
             String nombre = "@drawable/" + l.getRuta();
             int recurso = getResources().getIdentifier(nombre,null, getPackageName());
             fotito.setImageResource(recurso);
+            fotito.setPadding(15,10,15, 10);
             LinearLayout llv = new LinearLayout(llh.getContext());
             llv.setOrientation(LinearLayout.VERTICAL);
             TextView titulo = new TextView(llv.getContext());
             titulo.setText(l.getTitulo());
-            System.out.println(l.getTitulo());
+            titulo.setPadding(15,10,15, 10);
+            //System.out.println(l.getTitulo());
             TextView autor = new TextView(llv.getContext());
             autor.setText(l.getAutor());
-            System.out.println(l.getAutor());
+            autor.setPadding(15,10,15, 10);
+            //System.out.println(l.getAutor());
             TextView editorial = new TextView(llv.getContext());
             editorial.setText(l.getEditorial());
-            System.out.println(l.getEditorial());
+            editorial.setPadding(15,10,15, 10);
+            //System.out.println(l.getEditorial());
             TextView categoria = new TextView(llv.getContext());
             categoria.setText(l.getCategoria());
-            System.out.println(l.getCategoria());
-            System.out.println(l.getRuta());
-            System.out.println();
+            categoria.setPadding(15,10,15, 10);
+            //System.out.println(l.getCategoria());
+            //System.out.println(l.getRuta());
+            //System.out.println();
             llv.addView(titulo);
             llv.addView(autor);
             llv.addView(editorial);
