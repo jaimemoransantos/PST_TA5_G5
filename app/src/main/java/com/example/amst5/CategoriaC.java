@@ -18,7 +18,10 @@ import java.util.ArrayList;
 public class CategoriaC extends AppCompatActivity {
     ImageButton bterror,bromance,bficcion,bcuento;
     String libros="sheyla";
-   // ArrayList<Libro> libros_iterar;
+
+   String[] libros_iterar;
+    ArrayList<Libro> basedatos = new ArrayList<>();
+    ArrayList<String> lib = new ArrayList<>();
 
 
 
@@ -32,31 +35,41 @@ public class CategoriaC extends AppCompatActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_categoria);
+        Bundle bundle=getIntent().getExtras();
+        libros_iterar=bundle.getStringArray("arrayst");
+
 
     }
 
     public void mostrar(String categoria) {
-        /*for (Libro l : libros_iterar) {
-            if (l.getCategoria().equals(categoria)) {
-                libros=l.getTitulo();
+
+        for(String s : libros_iterar){
+            String[] cortado = s.split("\\|");
+            basedatos.add(new Libro(cortado[0], cortado[3], cortado[1], cortado[2], cortado[4], cortado[5]));
+            String l = cortado[0]+" " +cortado[1]+" " + cortado[2]+" " + cortado[3]+" " + cortado[4]+" " + cortado[5];
+            System.out.println(l);
+        }
+        for (Libro l:basedatos){
+            if (l.getCategoria().equals(categoria)){
+                lib.add(l.getAutor());
+                lib.add(l.getEditorial());
+                lib.add(l.getRuta());
+                lib.add(l.getSinopsis());
+                lib.add(l.getTitulo());
 
             }
+        }
 
-        }*/
+
+
+
     }
 
 
     //botones
     public void categoria(View view) {
-        //prueba Sheyla
-        //Intent i= new Intent(this,CategoriaC.class);
-        //startActivity(i);
-        //finish();
-        //prueba Sheyla
-        //Intent intent= getIntent();
-        //Bundle args=intent.getBundleExtra("BUNDLE");
-        //libros_iterar=(ArrayList<Libro>) args.getSerializable("ARRAYLIST");
         Intent ic= new Intent(this,CategoriaC.class);
+        ic.putExtra("arrayst",libros_iterar);
         startActivity(ic);
         finish();
     }
@@ -78,9 +91,19 @@ public class CategoriaC extends AppCompatActivity {
        // mostrar();
        // mostrarDialogo();
         if ((getResources().getResourceEntryName(view.getId()).equals("imageButtonCuento"))){
+            mostrar("Cuento");
+            mostrarDialogo();
+        }else if ((getResources().getResourceEntryName(view.getId()).equals("imageButtonTerror"))){
             mostrar("Terror");
             mostrarDialogo();
+        }else if((getResources().getResourceEntryName(view.getId()).equals("imageButtonFiccion"))){
+            mostrar("Ficción");
+            mostrarDialogo();
+        }else if((getResources().getResourceEntryName(view.getId()).equals("imageButtonRomance"))){
+            mostrar("Romance");
+            mostrarDialogo();
         }
+
 
 
         }

@@ -149,7 +149,7 @@ public class Principal extends AppCompatActivity {
 //modificado Sheyla
             Intent intent= new Intent(this, CategoriaC.class);
 
-            //intent.putExtra("BUNDLE",args);
+            intent.putExtra("arrayst",libros);
             startActivity(intent);
             finish();
     }
