@@ -1,8 +1,9 @@
 package com.example.amst5;
 
-import androidx.annotation.Nullable;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
@@ -12,7 +13,6 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ScrollView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -68,35 +68,41 @@ public class Principal extends AppCompatActivity {
 
     public void agregarInfo(LinearLayout ll) {
         ll.removeAllViews();
-        for (Libro l : db) {
+        for (final Libro l : db) {
             LinearLayout llh = new LinearLayout(ll.getContext());
             llh.setOrientation(LinearLayout.HORIZONTAL);
             ImageView fotito = new ImageView(llh.getContext());
             String nombre = "@drawable/" + l.getRuta();
             int recurso = getResources().getIdentifier(nombre,null, getPackageName());
             fotito.setImageResource(recurso);
+            fotito.setPadding(15,10,15, 10);
             LinearLayout llv = new LinearLayout(llh.getContext());
             llv.setOrientation(LinearLayout.VERTICAL);
             TextView titulo = new TextView(llv.getContext());
             titulo.setText(l.getTitulo());
-            System.out.println(l.getTitulo());
+            titulo.setPadding(15,10,15, 10);
             TextView autor = new TextView(llv.getContext());
             autor.setText(l.getAutor());
-            System.out.println(l.getAutor());
+            autor.setPadding(15,10,15, 10);
             TextView editorial = new TextView(llv.getContext());
             editorial.setText(l.getEditorial());
-            System.out.println(l.getEditorial());
+            editorial.setPadding(15,10,15, 10);
             TextView categoria = new TextView(llv.getContext());
             categoria.setText(l.getCategoria());
-            System.out.println(l.getCategoria());
-            System.out.println(l.getRuta());
-            System.out.println();
+            categoria.setPadding(15,10,15, 10);
+
             llv.addView(titulo);
             llv.addView(autor);
             llv.addView(editorial);
             llv.addView(categoria);
             llh.addView(fotito);
             llh.addView(llv);
+            llh.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    mostrarDialogo(l.getSinopsis());
+                }
+            });
             ll.addView(llh);
 
         }
@@ -104,38 +110,44 @@ public class Principal extends AppCompatActivity {
 
     public void filtrado(String filtro) {
         info.removeAllViews();
-        for (Libro l : db) {
+        for (final Libro l : db) {
             LinearLayout llh = new LinearLayout(info.getContext());
             llh.setOrientation(LinearLayout.HORIZONTAL);
             ImageView fotito = new ImageView(llh.getContext());
             String nombre = "@drawable/" + l.getRuta();
             int recurso = getResources().getIdentifier(nombre, null, getPackageName());
             fotito.setImageResource(recurso);
+            fotito.setPadding(15,10,15, 10);
             LinearLayout llv = new LinearLayout(llh.getContext());
             llv.setOrientation(LinearLayout.VERTICAL);
             TextView titulo = new TextView(llv.getContext());
             titulo.setText(l.getTitulo());
-            System.out.println(l.getTitulo());
+            titulo.setPadding(15,10,15, 10);
             TextView autor = new TextView(llv.getContext());
             autor.setText(l.getAutor());
-            System.out.println(l.getAutor());
+            autor.setPadding(15,10,15, 10);
             TextView editorial = new TextView(llv.getContext());
             editorial.setText(l.getEditorial());
-            System.out.println(l.getEditorial());
+            editorial.setPadding(15,10,15, 10);
             TextView categoria = new TextView(llv.getContext());
             categoria.setText(l.getCategoria());
-            System.out.println(l.getCategoria());
-            System.out.println(l.getRuta());
-            System.out.println();
+            categoria.setPadding(15,10,15, 10);
 
-            if(titulo.getText().toString().contains(filtro) || autor.getText().toString().contains(filtro) ||
-                    editorial.getText().toString().contains(filtro) || categoria.getText().toString().contains(filtro)) {
+            if(titulo.getText().toString().toLowerCase().contains(filtro.toLowerCase()) || autor.getText().toString().toLowerCase().contains(filtro.toLowerCase()) ||
+                    editorial.getText().toString().toLowerCase().contains(filtro.toLowerCase()) || categoria.getText().toString().toLowerCase().contains(filtro.toLowerCase())) {
                 llv.addView(titulo);
                 llv.addView(autor);
                 llv.addView(editorial);
                 llv.addView(categoria);
                 llh.addView(fotito);
                 llh.addView(llv);
+                llh.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+
+                        mostrarDialogo(l.getSinopsis());
+                    }
+                });
                 info.addView(llh);
             }
         }
@@ -143,29 +155,56 @@ public class Principal extends AppCompatActivity {
 
     public void busqueda(View view){
         String search = et.getText().toString();
-        filtrado(search);
+        if(search != null || search.equals("")){
+            filtrado(search);
+        }else{
+            agregarInfo(info);
+        }
+
     }
         //botones
         public void categoria(View view){
 
 //modificado Sheyla
+            ArrayList<Libro> libros_base= db;
             Intent intent= new Intent(this, CategoriaC.class);
-
-            intent.putExtra("arrayst",libros);
+            Bundle args= new Bundle();
+            args.putSerializable("ARRAYLIST",(Serializable)libros_base);
+            intent.putExtra("BUNDLE",args);
             startActivity(intent);
             finish();
     }
     public void perfil(View view){
         Intent i = new Intent(this, Perfil.class);
-        //bundle=getIntent().getExtras();
         i.putExtra("usuario",bundle.getString("usuario"));
+        i.putExtra("passsword",bundle.getString("password"));
         startActivity(i);
-        //finish();
-
+        finish();
     }
     public void principal(View view){
-        Toast toast1 = Toast.makeText(getApplicationContext(), "Ya se encuentra dentro del menu principal", Toast.LENGTH_SHORT);
-        toast1.show();
+        Intent i = new Intent(this, Principal.class);
+        startActivity(i);
+        finish();
     }
+
+    public void mostrarDialogo(String s){
+        AlertDialog.Builder builder= new AlertDialog.Builder(Principal.this);
+        builder.setTitle("Sinopsis");
+        builder.setMessage(s)
+                .setNegativeButton(android.R.string.cancel, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int i) {
+                        dialog.dismiss();
+                    }
+                })
+                .setCancelable(false)
+                .show();
+
+    }
+
+
+
+
+
 
 }
