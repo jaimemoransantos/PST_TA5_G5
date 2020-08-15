@@ -13,6 +13,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ScrollView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -179,12 +180,10 @@ public class Principal extends AppCompatActivity {
         i.putExtra("usuario",bundle.getString("usuario"));
         i.putExtra("passsword",bundle.getString("password"));
         startActivity(i);
-        finish();
     }
     public void principal(View view){
-        Intent i = new Intent(this, Principal.class);
-        startActivity(i);
-        finish();
+        Toast toast1 = Toast.makeText(getApplicationContext(), "Ya se encuentra dentro del Menu principal", Toast.LENGTH_SHORT);
+        toast1.show();
     }
 
     public void mostrarDialogo(String s){

@@ -90,7 +90,7 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintLayout3"
-        android:layout_width="410dp"
+        android:layout_width="0dp"
         android:layout_height="119dp"
         android:background="#2196F3"
         app:layout_constraintBottom_toBottomOf="parent"
