@@ -2,6 +2,7 @@ package com.example.amst5;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
@@ -15,12 +16,14 @@ import android.widget.Toast;
 public class Perfil extends AppCompatActivity {
     TextView tUsuario,tNombre,tApellido,tCorreo,tCelular,tFavorito;
     String user;
+    Bundle bundle;
+    @SuppressLint("SetTextI18n")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_perfil);
-        Bundle bundle=getIntent().getExtras();
-        Bundle bundle2= getIntent().getExtras();
+
+        bundle=getIntent().getExtras();
 
         tUsuario=(TextView)findViewById(R.id.textUsuario);
         tNombre=(TextView)findViewById(R.id.textNombre);
@@ -39,11 +42,11 @@ public class Perfil extends AppCompatActivity {
         Cursor fila = bd.rawQuery(
                 "select nombre,apellido,email,genero,numTel from info where user=" + user, null);
         if (fila.moveToFirst()) {
-            tNombre.setText(fila.getString(0));
-            tApellido.setText(fila.getString(1));
-            tCorreo.setText(fila.getString(2));
-            tFavorito.setText(fila.getString(3));
-            tCelular.setText(fila.getString(4));
+            tNombre.setText("Nombre: "+ fila.getString(0));
+            tApellido.setText("Apellido: "+fila.getString(1));
+            tCorreo.setText("Correo: "+fila.getString(2));
+            tFavorito.setText("Favorito: "+fila.getString(3));
+            tCelular.setText("Telefono: "+fila.getString(4));
 
         }
         bd.close();
@@ -62,10 +65,13 @@ public class Perfil extends AppCompatActivity {
     }
     public void principal(View view){
         Intent i = new Intent(this, Principal.class);
-        startActivity(i);
+        i.putExtra("user",user);
+        setResult(RESULT_OK,i);
         finish();
     }
     public  void  salir(View view){
+        Intent i = new Intent(this, MainActivity.class);
+        startActivity(i);
         finish();
     }
 
